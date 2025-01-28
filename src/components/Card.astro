@@ -1,0 +1,36 @@
+---
+
+---
+
+
+<div class="card">
+    <slot/>
+</div>
+
+<style>
+    .card {
+        width: 100%;
+        box-shadow: var(--box-shadow);
+        border-radius: 4px;
+        padding: 0.5em 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        justify-content: space-between;
+        background-color: rgba(var(--primary), 0.05);
+    }
+</style>
+<!-- This is so cursed, find a better solution -->
+<style is:global>
+    .diktatAsistensiCard {
+        width: 100%;
+        box-shadow: var(--box-shadow);
+        border-radius: 4px;
+        padding: 0.5em 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        justify-content: space-between;
+        background-color: rgba(var(--primary), 0.05);
+    }
+</style>

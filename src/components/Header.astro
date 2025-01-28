@@ -1,0 +1,313 @@
+---
+
+---
+
+<header transition:persist>
+    <div class="container">
+        <a href="/" class="logo-link">
+            <img src="/logo-akpro-ime-25-polos-removed-effects.svg" class="logo" alt="logo AKPRO IME FTUI" height="50"
+                 width="50" loading="eager"/>
+            <h1> AKPRO IME FTUI</h1>
+        </a>
+        <div class="header-btn">
+            <a href="/"> <i class="material-symbols-rounded">home</i> </a>
+            <button id="nav-btn" class="nav-btn"><i class="material-symbols-rounded" aria-label="Toggle Sidebar"
+                                                    aria-controls="top-nav">menu</i></button>
+        </div>
+    </div>
+    <nav id="top-nav" class="top-nav hidden">
+        <ul>
+            <li>
+                <a href="/diktat-asistensi"><span>Diktat dan Asistensi</span></a>
+            </li>
+            <li>
+                <a href="/proker-lain"><span>Proker lain (WIP)</span></a>
+            </li>
+            <li>
+                <a href="/about"><span>About</span></a>
+            </li>
+            <li>
+                <span><button id="toggle-dark-mode" class="toggle-dark-mode" aria-label="Toggle dark mode">
+                    <i class="material-symbols-rounded theme-icon theme-icon-dark">dark_mode</i>
+                    <i class="material-symbols-rounded theme-icon theme-icon-light">light_mode</i>
+                </button></span>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="overlay overlay-hidden" id="overlay" aria-hidden="true" transition:persist></div>
+
+
+<style>
+    header {
+        --_header-height: clamp(40px, 8vh, 72px);
+
+        background-color: rgb(var(--background));
+        display: flex;
+        position: sticky;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        box-shadow: var(--box-shadow);
+        z-index: 20;
+    }
+
+    .container {
+        width: 100%;
+        display: flex;
+        padding: 0 0.5em;
+        flex-direction: row;
+        height: var(--_header-height);
+        align-items: center;
+        gap: 0.5em;
+        position: relative;
+        z-index: 20;
+    }
+
+    .logo {
+        border: none;
+        border-radius: 50%;
+        height: calc(var(--_header-height) * 0.75); /* idk why pls fix */
+        aspect-ratio: 1/1;
+        display: block;
+    }
+
+    h1 {
+        font-size: 1rem;
+        color: rgb(var(--text));
+        /*text-shadow: 1px 1px 0 var(--text);*/
+    }
+
+    .logo-link {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        text-decoration: none;
+    }
+
+    .header-btn {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5em;
+        margin-left: auto;
+    }
+
+    .header-btn .material-symbols-rounded {
+        font-size: 2rem;
+    }
+
+    i {
+        display: block;
+        color: rgb(var(--text));
+        cursor: pointer;
+    }
+
+    .header-btn a {
+        text-decoration: none;
+    }
+
+    .header-btn .nav-btn {
+        display: block;
+        border: none;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+    }
+
+
+    /* ---------Nav---------- */
+
+    nav {
+        width: 100%;
+        margin: 0;
+        background-color: rgb(var(--background));
+        color: rgb(var(--text));
+        transition: max-height 0.15s linear;
+        top: var(--_header-height);
+        position: fixed;
+        overflow: hidden;
+        max-height: 50vh;
+        z-index: 19;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        font-weight: bold;
+        color: inherit;
+        transition: background-color 0.15s ease-out;
+        border-bottom: 2px solid rgba(var(--text), 0.1);
+        position: relative;
+        isolation: isolate;
+    }
+
+    nav a:hover::after {
+        content: '';
+        position: absolute;
+        z-index: -2;
+        inset: 100% 0 -2px 0;
+        background: rgb(var(--primary));
+    }
+
+    nav span {
+        margin: 0;
+        display: block;
+        padding: 0.75rem 2rem;
+    }
+
+    .hidden {
+        max-height: 0;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.25);
+        position: fixed;
+        inset: 0;
+        z-index: 8;
+        display: block;
+        pointer-events: all;
+        cursor: pointer;
+    }
+
+    .overlay-hidden {
+        display: none;
+    }
+
+    .toggle-dark-mode {
+        border: none;
+        display: flex;
+        gap: 0.25rem;
+        padding-block: 2px;
+        border-radius: 100px;
+        background-color: rgba(var(--text), 0.75);
+        box-shadow: 1px 2px 4px black inset;
+        color: rgb(var(--text));
+        cursor: pointer;
+    }
+
+    .theme-icon {
+        border-radius: 50%;
+        font-size: 1.25rem;
+        padding: 0.125rem;
+        transition: color 0.25s linear;
+        box-shadow: var(--box-shadow);
+        visibility: hidden;
+    }
+
+    html[data-theme="light"] .theme-icon-light {
+        color: goldenrod;
+        background-color: white;
+        visibility: visible;
+    }
+
+    html[data-theme="dark"] .theme-icon-dark {
+        color: white;
+        background-color: black;
+        visibility: visible;
+    }
+
+    @media screen and (min-width: 1000px) {
+        .hidden {
+            max-height: none;
+        }
+
+        .overlay {
+            display: none;
+        }
+
+        header {
+            flex-direction: row;
+        }
+
+        nav {
+            position: relative;
+            top: 0;
+            display: block;
+            width: fit-content;
+            margin-left: auto;
+            padding-inline: 1rem;
+        }
+
+        nav a {
+            font-weight: normal;
+            font-size: 0.9rem;
+            border-bottom: none;
+            display: flex;
+            align-items: center;
+        }
+
+        nav span {
+            padding: 0;
+        }
+
+        ul {
+            display: flex;
+            gap: 1.5rem;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .header-btn {
+            display: none;
+        }
+
+        .header-btn {
+            margin-right: 1rem;
+        }
+
+        .top-nav a {
+            width: fit-content;
+        }
+
+        .container {
+            width: fit-content;
+        }
+    }
+</style>
+
+<script>
+    const topNav = document.getElementById('top-nav') as HTMLElement;
+    const overlay = document.getElementById('overlay') as HTMLElement;
+    const navBtn = document.getElementById('nav-btn') as HTMLElement;
+
+    const toggleNavBar = () => {
+        topNav.classList.toggle('hidden');
+        overlay.classList.toggle('overlay-hidden');
+    }
+
+    overlay.addEventListener('click', toggleNavBar);
+
+    navBtn.addEventListener('click', toggleNavBar);
+
+    document.addEventListener('astro:after-swap', () => {
+        if (!topNav.classList.contains('hidden')) {
+            toggleNavBar();
+        }
+    })
+
+    const toggleTheme = () => {
+        type Theme = 'dark' | 'light';
+        const current = document.documentElement.getAttribute('data-theme') as string;
+        const newTheme: Theme = current === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+    }
+
+    document.querySelectorAll('.toggle-dark-mode').forEach(e => {
+        e.addEventListener('click', toggleTheme);
+
+    })
+</script>
+

@@ -1,0 +1,28 @@
+---
+import Card from "./Card.astro";
+
+type Major = 'elektro' | 'komputer' | 'biomedik'
+interface Props {
+    name: string,
+    major: Major[],
+    year: number[],
+    googleDriveLink: string,
+    zoomMeetingsLink: string,
+    img?: string
+}
+
+const {name, major, year, googleDriveLink, zoomMeetingsLink, img = ''} = Astro.props;
+---
+
+<Card>
+    <div class="card-top">
+        <h3>{name}</h3>
+        <p>{major.join(", ")}, {year.join(", ")}</p>
+    </div>
+    <img src={img} loading="lazy" alt=`Cover Diktat ${name}, ${major} ${year}`>
+    <div class="btn-container">
+        <a href={googleDriveLink} class="btn drive-btn"><i class="material-symbols-rounded">picture_as_pdf</i> PDF</a>
+        <a href={zoomMeetingsLink} class="btn zoom-btn"><i class="material-symbols-rounded">videocam</i> Zoom</a>
+    </div>
+</Card>
+

@@ -1,0 +1,91 @@
+.diktatAsistensiList {
+    height: fit-content;
+}
+.diktatAsistensiList__select {
+    display: inline-block;
+    font-family: inherit;
+    color: rgb(var(--text));
+    accent-color: rgb(var(--accent));
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    width: auto;
+    border: none;
+    border-radius: 3px;
+    background-color: rgba(var(--secondary), 0.25);
+    box-shadow: var(--box-shadow);
+    cursor: pointer;
+    margin-right: 0.5em;
+}
+
+.diktatAsistensiList__select:focus:not(:focus-visible){ outline: 0; }
+
+.diktatAsistensiList__select option {
+    background-color: rgba(var(--secondary), 0.25);
+    accent-color: rgb(var(--text));
+    color: rgb(var(--text));
+    border: none;
+    font-family: inherit;
+}
+
+.diktatAsistensiList__cards {
+    display: grid;
+    grid-auto-rows: clamp(280px, 280px, auto);
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    justify-items: center;
+    width: 100%;
+    gap: 1rem;
+    margin-block: 1rem;
+}
+
+@media (max-width: 860px) {
+    .diktatAsistensiList__cards {
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+
+
+.diktatAsistensiList__img {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border: none;
+    border-radius: 5px;
+    font-style: italic;
+}
+
+.diktatAsistensiList__btnContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25em;
+}
+
+.diktatAsistensiList__btn {
+    display: block;
+    text-align: center;
+    padding: 0.25em 0;
+    border: 1px solid rgba(var(--secondary), 0.35);
+    color: rgb(var(--text));
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    background-color: rgba(var(--secondary), 0.25);
+    transition: background-color 0.15s ease-in-out;
+}
+
+.diktatAsistensiList__btn:hover {
+    background-color: rgba(var(--secondary), 0.5);
+}
+
+.diktatAsistensiList__a {
+    color: rgb(var(--text));
+
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
