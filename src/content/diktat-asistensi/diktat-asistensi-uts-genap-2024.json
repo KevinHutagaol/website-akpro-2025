@@ -1,6 +1,6 @@
 {
   "year": 2024,
-  "uts_uas": "uas",
+  "uts_uas": "uts",
   "ganjil_genap": "genap",
   "content": [
     {
@@ -12,7 +12,7 @@
         "komputer",
         "biomedik"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1e9JUwMf4D2MuQ0DXVjOG3UJIGT4VMdoX/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/1ArZnmvsoeJUpMLmwXlitXOI2fH5Vtc3H/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     },
@@ -24,7 +24,7 @@
       "major": [
         "elektro"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1tFzx4KF1tUlw7-BZrtZ40UAW5XuomKr3/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/1eEbj7rtMixFZBem55nAhLCctPyYMBDB2/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     },
@@ -36,7 +36,7 @@
       "major": [
         "elektro"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1ojlB3QiXYolIQUlLINdsto6cJ8sh7D5C/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/1gFMF1CQ0trwTpGgABcWOvGkuS1DiDvp-/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     },
@@ -50,7 +50,7 @@
         "komputer",
         "biomedik"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1IujEDBU0vaJhyzxz49L7i7TafklwU2GO/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/1fKU2F4sSAGZw0pNcRNq8ebzhZ6MMm70B/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     },
@@ -62,12 +62,12 @@
       "major": [
         "elektro"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1jBT92rGGl9IpvBW2n7Ly7AXWEHkIy7G6/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/17oPEA1iN7Xi6eaAn5FjDE0TtgSuZUsm4/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     },
     {
-      "name": "Matematika Teknik 2 Tekom Biom",
+      "name": "Matematik Teknik Tekom Biom",
       "year": [
         2
       ],
@@ -75,19 +75,7 @@
         "komputer",
         "biomedik"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1fHRiIsXJcKmWUhP3mwyuBU1qKx-I5WY5/view?usp=drive_link",
-      "includesMeetingLink": false,
-      "zoomMeetingsLink": ""
-    },
-    {
-      "name": "Organisasi Arsitektur Komputer",
-      "year": [
-        1
-      ],
-      "major": [
-        "komputer"
-      ],
-      "googleDriveLink": "https://drive.google.com/file/d/10NGMy3J2wvWxK_xQ46M8j9Cj9wvhJfQu/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/1Ex2ugy2W8DSbNW70BYhPh87WDveWV7FX/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     },
@@ -99,7 +87,7 @@
       "major": [
         "elektro"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1q6DwGCLVpfXFBOhlGICk6sMsi7Bttk3z/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/1E0QQ2GxITOF129DJWehTYHceuptuJsOk/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     },
@@ -111,7 +99,7 @@
       "major": [
         "elektro"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/15tH1owpNEzOZe28y8GBawBII9GZlFq_7/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/1d_apEVG-JETt3AVBmdliHxDAb3Phx_na/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     },
@@ -123,7 +111,7 @@
       "major": [
         "elektro"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1HiAVq7huQ_WjHAxhIfAi3f12apVjl8eY/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/1T0ZyShAsKNK6B5cYIqMPpr7p08ZQYVfl/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     },
@@ -135,19 +123,7 @@
       "major": [
         "elektro"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1dsFDsnzcXI55fZVZBUTmWFyLiVBw-R8p/view?usp=drive_link",
-      "includesMeetingLink": false,
-      "zoomMeetingsLink": ""
-    },
-    {
-      "name": "Teori Medan Elektromagnetika",
-      "year": [
-        1
-      ],
-      "major": [
-        "biomedik"
-      ],
-      "googleDriveLink": "https://drive.google.com/file/d/1S32DFuhQm_jwLKl1kBlC3kRurTwLZmm5/view?usp=drive_link",
+      "googleDriveLink": "https://drive.google.com/file/d/1oaf9YJQCt7F4mfhrXoyZFBh-KnQ1B2sE/view?usp=drive_link",
       "includesMeetingLink": false,
       "zoomMeetingsLink": ""
     }

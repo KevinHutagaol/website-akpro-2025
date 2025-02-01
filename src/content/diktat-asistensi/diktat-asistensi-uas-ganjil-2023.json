@@ -1,0 +1,120 @@
+{
+  "year": 2023,
+  "uts_uas": "uas",
+  "ganjil_genap": "ganjil",
+  "content": [
+    {
+      "name": "Aljabar Linear",
+      "year": [
+        1
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1_VJ42WOkoF9rGpoZwgyxXXqlJmEvKu2D/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Dasar Sistem Digital",
+      "year": [
+        1
+      ],
+      "major": [
+        "komputer",
+        "biomedik"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1FmKbVvXKX5rxQ6UcXXCGxVjtA1Hj1W5u/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Elektromagnetika",
+      "year": [
+        2
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1mMfTYarAeqZKpenR17EJk1dTPHxbcKX9/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Fisika Listrik",
+      "year": [
+        1
+      ],
+      "major": [
+        "elektro",
+        "komputer",
+        "biomedik"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1Z7MlXHcm4DP7bBZp9wgUqM_prQaH-b55/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Aljabar Linear Lanjut",
+      "year": [
+        2
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/18ElgT0YByhkAdhXXdo0p3CFIduqlDxAu/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Kalkulus",
+      "year": [
+        1
+      ],
+      "major": [
+        "elektro",
+        "komputer",
+        "biomedik"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/12_5OvLAlH9jyAQUxQjr9C81fBj6S7uxj/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Kimia Dasar",
+      "year": [
+        1
+      ],
+      "major": [
+        "biomedik"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1ZE12xKRokD7zSRQwQh84u3VNWvduC2ve/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Matematika Teknik Biomedik",
+      "year": [
+        2
+      ],
+      "major": [
+        "biomedik"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1MDt1RyZGvpxtKd7OFfPvq21LbXql15Hb/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Matematika Teknik Elektro",
+      "year": [
+        2
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1juv-0Zt4fexM7BRntBTlwwCA3KeHpvcq/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    }
+  ]
+}

@@ -1,9 +1,7 @@
 import {useState, useEffect} from "react";
-import styles from "../../styles/DiktatAsistensiList.module.css"
-import "../../styles/global.css"
+import styles from "/src/styles/DiktatAsistensiList.module.css"
+import "/src/styles/global.css"
 import {convertYear, currentLatestYear} from "../../scripts/yearUtils.ts";
-
-const img_placeholders = Object.values(import.meta.glob("/src/assets/placeholder_img/*.svg", {eager: true}))
 
 interface Props {
     data: {
@@ -19,7 +17,8 @@ interface Props {
         year: number;
         uts_uas: "uts" | "uas";
         ganjil_genap: "ganjil" | "genap";
-    };
+    },
+    removeMeetingsLink: boolean,
 }
 
 export default function DiktatAsistensiList(props: Props) {
@@ -31,10 +30,46 @@ export default function DiktatAsistensiList(props: Props) {
         setSelectedMajor("");
     }, []);
 
+    const cardsFiltered = props.data.content
+        .filter(d => {
+            const sameYear = selectedYear ? d.year.includes(Number(selectedYear)) : true;
+            const sameMajor = selectedMajor ? d.major.includes(selectedMajor) : true;
+            return sameYear && sameMajor;
+        })
+        .map((content, index) => {
+            return (
+                <article className={styles.diktatAsistensiList__card} key={index}>
+                    <div>
+                        <h3>{content.name}</h3>
+                        <p className={styles.capitalize}>
+                            {content.major.map(major => `Teknik ${major}`).join(", ")}, {content.year.map(y => convertYear(y)).join(", ")}
+                        </p>
+                    </div>
+                    <img className={`${styles.diktatAsistensiList__img} img-skeleton`}
+                         src={content.img}
+                         loading="lazy"
+                         alt={`Cover Diktat ${content.name}, ${content.major.join(", ")} ${content.year.map(y => convertYear(y)).join(", ")}`}
+                    />
+                    <div className={styles.diktatAsistensiList__btnContainer}>
+                        <a href={content.googleDriveLink} className={styles.diktatAsistensiList__btn}>
+                            <i className="material-symbols-rounded">picture_as_pdf</i> PDF
+                        </a>
+                        {props.removeMeetingsLink ? null : (
+                            <a href={content.zoomMeetingsLink}
+                               className={styles.diktatAsistensiList__btn}>
+                                <i className="material-symbols-rounded">videocam</i>Zoom</a>
+                        )
+
+                        }
+                    </div>
+                </article>
+            )
+        })
+
     return (
         <section className={styles.diktatAsistensiList}>
             <div>
-                <h2>
+                <h2 className={styles.diktatAsistensiList__h2}>
                     {props.data.uts_uas.toUpperCase()} {props.data.ganjil_genap} {props.data.year}
                 </h2>
                 <select
@@ -59,41 +94,11 @@ export default function DiktatAsistensiList(props: Props) {
                     <option value="biomedik">Teknik Biomedik</option>
                 </select>
             </div>
-            <div className={styles.diktatAsistensiList__cards}>
-                {
-                    props.data.content
-                        .filter(d => {
-                            const sameYear = selectedYear ? d.year.includes(Number(selectedYear)) : true;
-                            const sameMajor = selectedMajor ? d.major.includes(selectedMajor) : true;
-                            return sameYear && sameMajor;
-                        })
-                        .map((content, index) => {
-                            return (
-                                <article className="diktatAsistensiCard" key={index}>
-                                    <div>
-                                        <h3>{content.name}</h3>
-                                        <p className={styles.capitalize}>
-                                            {content.major.map(major => `Teknik ${major}`).join(", ")}, {content.year.map(y => convertYear(y)).join(", ")}
-                                        </p>
-                                    </div>
-                                    <img className={`${styles.diktatAsistensiList__img} img-skeleton`}
-                                         src={content.img}
-                                         loading="lazy"
-                                         alt={`Cover Diktat ${content.name}, ${content.major.join(", ")} ${content.year.map(y => convertYear(y)).join(", ")}`}
-                                    />
-                                    <div className={styles.diktatAsistensiList__btnContainer}>
-                                        <a href={content.googleDriveLink} className={styles.diktatAsistensiList__btn}>
-                                            <i className="material-symbols-rounded">picture_as_pdf</i> PDF
-                                        </a>
-                                        <a href={content.zoomMeetingsLink} className={styles.diktatAsistensiList__btn}>
-                                            <i className="material-symbols-rounded">videocam</i> Zoom
-                                        </a>
-                                    </div>
-                                </article>
-                            )
-                        })
-                }
-            </div>
+            {cardsFiltered.length > 0 ?
+                <div className={styles.diktatAsistensiList__cards}>{cardsFiltered}</div>
+                : <p className={styles.diktatAsistensiList__noResults}>No results found.</p>
+
+            }
         </section>
     )
 }

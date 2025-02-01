@@ -1,5 +1,5 @@
 .diktatAsistensiList {
-    height: fit-content;
+    margin-bottom: auto;
 }
 .diktatAsistensiList__select {
     display: inline-block;
@@ -43,8 +43,6 @@
     }
 }
 
-
-
 .diktatAsistensiList__img {
     margin: 0;
     padding: 0;
@@ -80,10 +78,33 @@
     background-color: rgba(var(--secondary), 0.5);
 }
 
+.diktatAsistensiList__card {
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    justify-content: space-between;
+    background-color: rgba(var(--primary), 0.05);
+}
+
 .diktatAsistensiList__a {
     color: rgb(var(--text));
-
 }
+
+.diktatAsistensiList__h2 {
+    padding-block: 1rem;
+}
+
+.diktatAsistensiList__noResults {
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
 
 .capitalize {
     text-transform: capitalize;

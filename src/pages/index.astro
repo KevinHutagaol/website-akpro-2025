@@ -15,7 +15,7 @@ const homeArticles: AstroInstance[] = Object.values(import.meta.glob("../content
             </Card>
         </article>
     </section>
-    <section>
+    <section class="full-width">
         {homeArticles.map((component: AstroInstance) => (
             <component.default />
         ))

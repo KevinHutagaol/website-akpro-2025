@@ -1,94 +1,8 @@
 {
   "year": 2024,
-  "uts_uas": "uas",
-  "ganjil_genap": "ganjil" ,
+  "uts_uas": "uts",
+  "ganjil_genap": "ganjil",
   "content": [
-    {
-      "name": "Matematika Lanjut 1",
-      "year": [
-        2
-      ],
-      "major": [
-        "elektro"
-      ],
-      "googleDriveLink": "https://drive.google.com/file/d/1x9HxPdQcll7uGbbKiGhrAZyTnB9Z_7ua/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
-    },
-    {
-      "name": "Rangkaian Listrik 2",
-      "year": [
-        2
-      ],
-      "major": [
-        "elektro"
-      ],
-      "googleDriveLink": "https://drive.google.com/file/d/1MUlGQFM6WYf2yWk3dKsACYGRtBxY-KjC/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
-    },
-    {
-      "name": "Matematika Lanjut 2",
-      "year": [
-        2
-      ],
-      "major": [
-        "elektro"
-      ],
-      "googleDriveLink": "https://drive.google.com/file/d/1UZMMaDCXvUrl7ENumiQczYCSGF4ag8FL/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
-    },
-    {
-      "name": "Matematika Diskrit",
-      "year": [
-        2
-      ],
-      "major": [
-        "elektro"
-      ],
-      "googleDriveLink": "https://drive.google.com/file/d/1FwZw68C4hpFWiLhxihtG10117LlckKNR/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
-    },
-    {
-      "name": "Statistika",
-      "year": [
-        2
-      ],
-      "major": [
-        "komputer"
-      ],
-      "googleDriveLink": "https://drive.google.com/file/d/18EIqRV9hdXvr8SIuWlOp4buiHbxVsLLv/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
-    },
-    {
-      "name": "Desain Rangkaian Elektronika/Elektronika Analog",
-      "year": [
-        2
-      ],
-      "major": [
-        "komputer",
-        "biomedik"
-      ],
-      "googleDriveLink": "https://drive.google.com/file/d/1wPg3ndeR7Df-bGIE-Y5opf9962BBwpYB/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
-    },
-    {
-      "name": "Rangkaian Listrik Tekom/Biom",
-      "year": [
-        2
-      ],
-      "major": [
-        "komputer",
-        "biomedik"
-      ],
-      "googleDriveLink": "https://drive.google.com/file/d/1GDUDpTL39knbNDwNj27SPwAgpFAoXvbo/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
-    },
     {
       "name": "Aljabar Linear",
       "year": [
@@ -97,23 +11,46 @@
       "major": [
         "elektro"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/15s3fbocH4fKoqVSutu_GNm5AW15dbLD5/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
+      "googleDriveLink": "https://drive.google.com/file/d/1U3ufFfbkFADNw4uNiWSzuzWypBl0a9lB/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
     },
     {
-      "name": "Kalkulus",
+      "name": "Dasar Rangkaian Elektronika",
+      "year": [
+        2
+      ],
+      "major": [
+        "komputer",
+        "biomedik"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1OKeh4Ba6QgK1hSG4-5wiCsigc2ytM9m_/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Dasar Sistem Digital",
       "year": [
         1
       ],
       "major": [
-        "elektro",
-        "komputer",
-        "biomedik"
+        "komputer"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1XjM3AOwSifrDkTg8w8o4Xxn-ie0Ktjuj/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
+      "googleDriveLink": "https://drive.google.com/file/d/1wdc8WUlONYk_x5qOk9Wy__lTb_uzA9VI/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Devais Semikonduktor",
+      "year": [
+        2
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1XyMsjeDu3uS7_6sm12xonSIMghXT8BWG/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
     },
     {
       "name": "Fisika Listrik",
@@ -125,9 +62,23 @@
         "komputer",
         "biomedik"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1FE_ItHO2dfU4gwfHZqSC76OabtkBGWaA/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
+      "googleDriveLink": "https://drive.google.com/file/d/1P-Fo0oniS_t11jnaxLo2On9g7pA5DPl8/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Kalkulus",
+      "year": [
+        1
+      ],
+      "major": [
+        "elektro",
+        "komputer",
+        "biomedik"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1wiXcG589Shkg1UdIvUfpOmlU9o5fs9PB/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
     },
     {
       "name": "Kimia Dasar",
@@ -137,33 +88,118 @@
       "major": [
         "biomedik"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1zNnTWuHcKuJmXR4j4KlBNvMwjqek1bIe/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
+      "googleDriveLink": "https://drive.google.com/file/d/1ilpCOLmPdxYYa3yDIN7ztSgTU5ICPO9a/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
     },
     {
-      "name": "Matematika Lanjut 1 Biomedik",
+      "name": "Matematika Diskrit",
+      "year": [
+        2
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1L-R0W6TZFQkz5s_PXWLrugq6xFCCMOZT/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Matematika Lanjut 1",
+      "year": [
+        2
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/17jwtLbYL8FeX9cFun4CusPz_866HTV1n/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Matematika Lanjut 2",
+      "year": [
+        2
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1o1xLwz-ae6EAsB2v_hJTzWv7E6CkknK3/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Matematika Lanjut Biomedik",
       "year": [
         2
       ],
       "major": [
         "biomedik"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1jPi9FDD_AZ_PIOYRAfDBC2ndhPF6d6AN/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
+      "googleDriveLink": "https://drive.google.com/file/d/1AzhfHJwQt7KBj0giCnBMmH7z0JrYbmrv/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
     },
     {
-      "name": "Dasar Sistem Digital",
+      "name": "Material Listrik",
       "year": [
-        1
+        2
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/15dNjmIXcQ5C8i0ujYhw3qWfbKfWOD9sJ/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Rangkaian Listrik 2",
+      "year": [
+        2
+      ],
+      "major": [
+        "elektro"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1u_HH8H2L-XVcZanFQfewqqJef_B6EMhl/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Rangkaian Listrik Tekom Biom",
+      "year": [
+        2
+      ],
+      "major": [
+        "komputer",
+        "biomedik"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1Ac9kM7nu1BurIyEheCIn1-NaAvhx9ptH/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Statistika dan Probabilitas Biomedik",
+      "year": [
+        2
+      ],
+      "major": [
+        "biomedik"
+      ],
+      "googleDriveLink": "https://drive.google.com/file/d/1WCzDNxDmAT8u-WY0LqDJyfY_UKn6LWfZ/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
+    },
+    {
+      "name": "Statistika Tekom",
+      "year": [
+        2
       ],
       "major": [
         "komputer"
       ],
-      "googleDriveLink": "https://drive.google.com/file/d/1vyNwSReVrvzoLGsbatCFF8oDX3R-8vBR/view?usp=drive_link",
-      "includesMeetingLink": true,
-      "zoomMeetingsLink": "https://www.zoom.com/?lang=null"
+      "googleDriveLink": "https://drive.google.com/file/d/1VQC4ls_rXnbiKNvFtBdAUtsDxulQDQir/view?usp=drive_link",
+      "includesMeetingLink": false,
+      "zoomMeetingsLink": ""
     }
   ]
 }

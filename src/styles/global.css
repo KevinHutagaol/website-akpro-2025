@@ -43,12 +43,33 @@
 
 *, *::before, *::after {
     box-sizing: border-box;
+    /*background-color: rgb( 255 0 0 /0.2 );*/
 }
 
 html {
     -webkit-text-size-adjust: none;
     -moz-text-size-adjust: none;
     text-size-adjust: none;
+}
+
+html,
+body {
+    margin: 0;
+    /*noinspection CssOverwrittenProperties*/
+    min-height: 100vh;
+    /*noinspection CssOverwrittenProperties*/
+    min-height: 100svh;
+    background: rgb(var(--background));
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    transition: color, background-color 0.15s linear;
+}
+
+footer {
+    margin-block-start: auto;
 }
 
 h1, h2, h3, h4, h5, p {
@@ -110,14 +131,16 @@ img.full-width {
 .img-skeleton {
     position: relative;
     isolation: isolate;
-    animation: img-skeleton 0.5s ease-in-out infinite alternate;
 }
 
 .img-skeleton::before {
     content: "";
     position: absolute;
-    z-index: -1;
-    inset: 0;
+    inset: 2px;
+    background-color: hsl(0, 0%, 70%, 0.5);
+    border-radius: inherit;
+    animation: img-skeleton 0.5s ease-in-out infinite alternate;
+    pointer-events: none;
 }
 
 
