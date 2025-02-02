@@ -40,11 +40,15 @@ export default function DiktatAsistensiList(props: Props) {
             return (
                 <article className={styles.diktatAsistensiList__card} key={index}>
                     <div>
-                        <h3>{content.name}</h3>
+                        <h4>{content.name}</h4>
                         <p className={styles.capitalize}>
-                            {content.major.map(major => `Teknik ${major}`).join(", ")}, {content.year.map(y => convertYear(y)).join(", ")}
+                            {content.major.map(major => `Teknik ${major}`).join(", ")}, {" "}
+                            {content.year.map(y => `Term ${props.data.ganjil_genap === 'genap' ? 2 * y : 2 * y - 1}`).join(", ")}
                         </p>
-                    </div>
+                    </div
+
+
+                    >
                     <img className={`${styles.diktatAsistensiList__img} img-skeleton`}
                          src={content.img}
                          loading="lazy"
@@ -69,12 +73,14 @@ export default function DiktatAsistensiList(props: Props) {
     return (
         <section className={styles.diktatAsistensiList}>
             <div>
-                <h2 className={styles.diktatAsistensiList__h2}>
+                <h2 className={`${styles.diktatAsistensiList__h2} ${styles.capitalize}`}>
                     {props.data.uts_uas.toUpperCase()} {props.data.ganjil_genap} {props.data.year}
                 </h2>
+                <label htmlFor="year-option" className="visually-hidden">Pilih Tahun</label>
                 <select
                     className={styles.diktatAsistensiList__select}
                     name="year-option"
+                    id="year-option"
                     value={selectedYear}
                     onChange={(e) => setSelectedYear(e.target.value)}
                 >
@@ -82,9 +88,11 @@ export default function DiktatAsistensiList(props: Props) {
                     <option value="1">{currentLatestYear}</option>
                     <option value="2">{currentLatestYear - 1}</option>
                 </select>
+                <label htmlFor="major-option" className="visually-hidden">Pilih Angkatan</label>
                 <select
                     className={styles.diktatAsistensiList__select}
                     name="major-option"
+                    id="major-option"
                     value={selectedMajor}
                     onChange={(e) => setSelectedMajor(e.target.value as (("elektro" | "komputer" | "biomedik") | ""))}
                 >

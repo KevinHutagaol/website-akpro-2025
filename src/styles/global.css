@@ -22,7 +22,14 @@
     --light-blue-gradient: linear-gradient(90deg, #BDF3FF, #00CBF6);
     --orange-gradient: linear-gradient(90deg, #FFD300, #FF5E00);
 
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1000,18,1.2,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
+    --fs-0: clamp(1rem, 0.9412rem + 0.2941vw, 1.125rem);
+    --fs-1: clamp(1.125rem, 1.0191rem + 0.5294vw, 1.35rem);
+    --fs-2: clamp(1.2656rem, 1.0989rem + 0.8338vw, 1.62rem);
+    --fs-3: clamp(1.4238rem, 1.179rem + 1.2239vw, 1.944rem);
+    --fs-4: clamp(1.6018rem, 1.2578rem + 1.72vw, 2.3328rem);
+    --fs-5: clamp(1.802rem, 1.3327rem + 2.3467vw, 2.7994rem);
 }
 
 :root[data-theme="light"] {
@@ -74,6 +81,30 @@ footer {
 
 h1, h2, h3, h4, h5, p {
     margin: 0;
+}
+
+h1 {
+    font-size: var(--fs-5)
+}
+
+h2 {
+    font-size: var(--fs-4)
+}
+
+h3 {
+    font-size: var(--fs-3)
+}
+
+h4 {
+    font-size: var(--fs-2)
+}
+
+h5 {
+    font-size: var(--fs-1)
+}
+
+p {
+    font-size: var(--fs-1)
 }
 
 
@@ -130,19 +161,12 @@ img.full-width {
 
 .img-skeleton {
     position: relative;
+    overflow: hidden;
     isolation: isolate;
-}
-
-.img-skeleton::before {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    background-color: hsl(0, 0%, 70%, 0.5);
+    background-clip: content-box;
     border-radius: inherit;
     animation: img-skeleton 0.5s ease-in-out infinite alternate;
-    pointer-events: none;
 }
-
 
 @keyframes img-skeleton {
     0% {
@@ -151,6 +175,16 @@ img.full-width {
     100% {
         background-color: hsl(0 0 70% / 0.5);
     }
+}
+
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 /* ------- */

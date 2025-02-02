@@ -132,6 +132,8 @@
         position: fixed;
         overflow: hidden;
         max-height: 50vh;
+        //height: calc-size(fit-content, size);
+        //interpolate-size: allow-keywords;
         z-index: 19;
     }
 
@@ -199,7 +201,7 @@
 
     .theme-icon {
         border-radius: 50%;
-        font-size: 1.25rem;
+        font-size: inherit;
         padding: 0.125rem;
         transition: color 0.25s linear;
         box-shadow: var(--box-shadow);

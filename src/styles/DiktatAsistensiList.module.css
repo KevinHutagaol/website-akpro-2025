@@ -15,6 +15,7 @@
     box-shadow: var(--box-shadow);
     cursor: pointer;
     margin-right: 0.5em;
+    font-size: inherit;
 }
 
 .diktatAsistensiList__select:focus:not(:focus-visible){ outline: 0; }
@@ -45,6 +46,7 @@
 
 .diktatAsistensiList__img {
     margin: 0;
+    margin-block-start: auto;
     padding: 0;
     overflow: hidden;
     width: 100%;

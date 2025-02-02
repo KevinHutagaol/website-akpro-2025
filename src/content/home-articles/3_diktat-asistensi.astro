@@ -1,0 +1,66 @@
+---
+import ArticleCards from "../../components/ArticleCards.astro";
+import Card from "../../components/Card.astro";
+---
+
+<ArticleCards title="Diktat dan Asistensi">
+    <div slot="cards" class="intro-cards">
+        <a href="/diktat-asistensi">
+            <Card>
+                <h3>Diktat dan Asistensi Terbaru <i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <p><i class="material-symbols-rounded icon-b">calendar_month</i> Main Page Diktat dan Asistensi</p>
+            </Card>
+        </a>
+        <a href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
+            <Card>
+                <h3>Rekaman Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <p><i class="material-symbols-rounded icon-b">smart_display</i> Channel Youtube Akpro</p>
+            </Card>
+        </a>
+    </div>
+</ArticleCards>
+
+<style>
+    a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        text-decoration-color: transparent;
+        width: 100%;
+    }
+
+    .icon-a {
+        transform: translateY(-1px);
+    }
+
+    .icon-b {
+        transform: translateY(-2px);
+    }
+
+    .material-symbols-rounded {
+        font-size: inherit;
+    }
+
+    .intro-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding-block-start: 1rem;
+        padding-inline: 0.25rem;
+        width: 100%;
+    }
+
+    h3 {
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+        isolation: isolate;
+        border-bottom: 1px solid rgb(var(--accent));
+    }
+</style>
+
+<style is:global>
+    .intro-cards > a:hover > * {
+        background-color: rgba(var(--accent), 0.2);
+    }
+</style>
