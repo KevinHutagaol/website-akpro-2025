@@ -32,8 +32,11 @@ const {title = "Akpro IME FTUI 2025", description = descriptionDefault} = Astro.
         <meta name="description" content={description}/>
         <meta name="keywords"
               content="Akpro IME FTUI, UI, FTUI, Teknik Elektro, Teknik Komputer, Teknik Biomedik">
-        <meta name="og:title" content="Akpro IME FTUI 2025">
-        <meta name="og:image" content="/logo-akpro-ime-25-polos-removed-effects.svg">
+        <meta property="og:title" content={title}>
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:image" content="/logo-akpro-ime-25-polos-removed-effects.svg">
+        <meta property="og:type" content="website" />
         <meta name="generator" content={Astro.generator}/>
         <title>{title}</title>
         <script is:inline>

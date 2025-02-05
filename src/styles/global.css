@@ -22,14 +22,14 @@
     --light-blue-gradient: linear-gradient(90deg, #BDF3FF, #00CBF6);
     --orange-gradient: linear-gradient(90deg, #FFD300, #FF5E00);
 
-    /* @link https://utopia.fyi/type/calculator?c=320,16,1.125,1000,18,1.2,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    /* @link https://utopia.fyi/type/calculator?c=320,14,1.125,1000,16,1.2,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
-    --fs-0: clamp(1rem, 0.9412rem + 0.2941vw, 1.125rem);
-    --fs-1: clamp(1.125rem, 1.0191rem + 0.5294vw, 1.35rem);
-    --fs-2: clamp(1.2656rem, 1.0989rem + 0.8338vw, 1.62rem);
-    --fs-3: clamp(1.4238rem, 1.179rem + 1.2239vw, 1.944rem);
-    --fs-4: clamp(1.6018rem, 1.2578rem + 1.72vw, 2.3328rem);
-    --fs-5: clamp(1.802rem, 1.3327rem + 2.3467vw, 2.7994rem);
+    --fs-0: clamp(0.875rem, 0.8162rem + 0.2941vw, 1rem);
+    --fs-1: clamp(0.9844rem, 0.8829rem + 0.5074vw, 1.2rem);
+    --fs-2: clamp(1.1074rem, 0.9509rem + 0.7825vw, 1.44rem);
+    --fs-3: clamp(1.2458rem, 1.019rem + 1.1345vw, 1.728rem);
+    --fs-4: clamp(1.4016rem, 1.0853rem + 1.5812vw, 2.0736rem);
+    --fs-5: clamp(1.5768rem, 1.1478rem + 2.1448vw, 2.4883rem);
 }
 
 :root[data-theme="light"] {
@@ -104,7 +104,7 @@ h5 {
 }
 
 p {
-    font-size: var(--fs-1)
+    font-size: var(--fs-0)
 }
 
 

@@ -3,7 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import {getCollection} from 'astro:content';
 import fillEmptyImgWithPlaceholder from "../../../scripts/fillEmptyImgWithPlaceholder";
 import DiktatAsistensiList from "../../../components/diktat-asistensi/DiktatAsistensiList";
-import Card from "../../../components/Card.astro";
+import AnchorCard from "../../../components/AnchorCard.astro";
 
 export async function getStaticPaths() {
     const diktatAsistensiArr = await getCollection("diktatAsistensiData");
@@ -32,18 +32,14 @@ const diktatAsistensiReplacedImg = {
         <h1>Kumpulan Diktat</h1>
         <p>Diktat Tahun 2018 - 2024</p>
         <div class="intro-cards">
-            <a href="/diktat-asistensi">
-                <Card>
-                    <h3>Diktat dan Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                    <p>Main page Diktat dan Asistensi</p>
-                </Card>
-                <a href="/diktat-asistensi/kumpulan-diktat">
-                    <Card>
-                        <h3>Kumpulan Diktat<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                        <p>Kumpulan diktat lainnya</p>
-                    </Card>
-                </a>
-            </a>
+            <AnchorCard href="/diktat-asistensi">
+                <h3>Diktat dan Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <p>Main page Diktat dan Asistensi</p>
+            </AnchorCard>
+            <AnchorCard href="/diktat-asistensi/kumpulan-diktat">
+                <h3>Kumpulan Diktat<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <p>Kumpulan diktat lainnya</p>
+            </AnchorCard>
         </div>
     </section>
     <section class="diktat-asistensi-latest">
@@ -66,6 +62,7 @@ const diktatAsistensiReplacedImg = {
         gap: 1rem;
         padding-block-start: 1rem;
     }
+
     .material-symbols-rounded {
         vertical-align: middle;
     }

@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import AnchorCard from "../components/AnchorCard.astro";
 import DiktatAsistensiList from "../components/diktat-asistensi/DiktatAsistensiList";
 import isEntryLatest from "../scripts/isEntryLatest";
 import { getCollection } from 'astro:content';
@@ -10,7 +10,7 @@ const diktatAsistensiArr = await getCollection("diktatAsistensiData");
 const imgPlaceholderArrModule: Array<any> = Object.values(import.meta.glob("/src/assets/placeholder_img/*.svg", {eager: true}))
 const imgPlaceholderArr: Array<string> = imgPlaceholderArrModule.map(obj => obj.default.src);
 
-const latestDiktatAsistensi = diktatAsistensiArr.reduce( (acc, cur) => {
+const latestDiktatAsistensi = diktatAsistensiArr.reduce((acc, cur) => {
     return isEntryLatest(acc.data, cur.data) ? cur : acc;
 }, diktatAsistensiArr[0])
 
@@ -24,32 +24,26 @@ const latestDiktatAsistensiReplacedImg = {
 }
 ---
 
-<Layout title="Diktat dan Asistensi | Akpro IME FTUI 2025">
+<Layout title="Diktat dan Asistensi | Akpro IME FTUI">
     <section class="intro full-width">
         <h1>Diktat dan Asistensi</h1>
         <div class="intro-cards">
-            <a href="#">
-                <Card>
-                    <h3>Jadwal Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                    <p><i class="material-symbols-rounded icon-b">calendar_month</i> Jadwal Asistensi UTS Genap 2025</p>
-                </Card>
-            </a>
-            <a href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
-                <Card>
-                    <h3>Rekaman Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                    <p><i class="material-symbols-rounded icon-b">smart_display</i> Channel Youtube Akpro</p>
-                </Card>
-            </a>
-            <a href="/diktat-asistensi/kumpulan-diktat">
-                <Card>
-                    <h3>Kumpulan Diktat<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                    <p>Diktat tahun 2018 - 2024</p>
-                </Card>
-            </a>
+            <AnchorCard href="/diktat-asistensi/jadwal-asistensi">
+                <h3>Jadwal Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <p><i class="material-symbols-rounded icon-b">calendar_month</i> Jadwal Asistensi UTS Genap 2025</p>
+            </AnchorCard>
+            <AnchorCard href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
+                <h3>Rekaman Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <p><i class="material-symbols-rounded icon-b">smart_display</i> Channel Youtube Akpro</p>
+            </AnchorCard>
+            <AnchorCard href="/diktat-asistensi/kumpulan-diktat">
+                <h3>Kumpulan Diktat<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <p>Diktat tahun 2018 - 2024</p>
+            </AnchorCard>
         </div>
     </section>
     <section class="diktat-asistensi-latest">
-        <DiktatAsistensiList client:load data={latestDiktatAsistensiReplacedImg.data} removeMeetingsLink={false} />
+        <DiktatAsistensiList client:load data={latestDiktatAsistensiReplacedImg.data} removeMeetingsLink={true}/>
     </section>
 </Layout>
 
@@ -95,8 +89,3 @@ const latestDiktatAsistensiReplacedImg = {
     }
 </style>
 
-<style is:global>
-    .intro-cards > a:hover > * {
-        background-color: rgba(var(--accent), 0.2);
-    }
-</style>

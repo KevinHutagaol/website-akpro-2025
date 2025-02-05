@@ -100,6 +100,11 @@
     padding-block: 1rem;
 }
 
+.diktatAsistensiList__details {
+    color: rgb(var(--accent));
+    text-transform: capitalize;
+}
+
 .diktatAsistensiList__noResults {
     display: block;
     margin: auto;

@@ -1,22 +1,18 @@
 ---
 import ArticleCards from "../../components/ArticleCards.astro";
-import Card from "../../components/Card.astro";
+import AnchorCard from "../../components/AnchorCard.astro";
 ---
 
 <ArticleCards title="Media Belajar">
     <div slot="cards" class="intro-cards">
-        <a href="/diktat-asistensi">
-            <Card>
-                <h3>Diktat dan Asistensi Terbaru <i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                <p><i class="material-symbols-rounded icon-b">calendar_month</i> Main Page Diktat dan Asistensi</p>
-            </Card>
-        </a>
-        <a href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
-            <Card>
-                <h3>Rekaman Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                <p><i class="material-symbols-rounded icon-b">smart_display</i> Channel Youtube Akpro</p>
-            </Card>
-        </a>
+        <AnchorCard href="/diktat-asistensi">
+            <h3>Diktat dan Asistensi Terbaru <i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+            <p><i class="material-symbols-rounded icon-b">calendar_month</i> Main Page Diktat dan Asistensi</p>
+        </AnchorCard>
+        <AnchorCard href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
+            <h3>Rekaman Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+            <p><i class="material-symbols-rounded icon-b">smart_display</i> Channel Youtube Akpro</p>
+        </AnchorCard>
     </div>
 </ArticleCards>
 
@@ -46,7 +42,6 @@ import Card from "../../components/Card.astro";
         flex-direction: column;
         gap: 1rem;
         padding-block-start: 1rem;
-        padding-inline: 0.25rem;
         width: 100%;
     }
 
@@ -56,11 +51,7 @@ import Card from "../../components/Card.astro";
         position: relative;
         isolation: isolate;
         border-bottom: 1px solid rgb(var(--accent));
+        text-wrap: balance;
     }
 </style>
 
-<style is:global>
-    .intro-cards > a:hover > * {
-        background-color: rgba(var(--accent), 0.2);
-    }
-</style>

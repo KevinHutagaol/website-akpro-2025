@@ -1,7 +1,6 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import styles from "/src/styles/DiktatAsistensiList.module.css"
 import "/src/styles/global.css"
-import {convertYear, currentLatestYear} from "../../scripts/yearUtils.ts";
 
 interface Props {
     data: {
@@ -22,6 +21,8 @@ interface Props {
 }
 
 export default function DiktatAsistensiList(props: Props) {
+    const convertToTerm = (year: number):number => props.data.ganjil_genap === 'genap' ?  2 * year : 2 * year - 1
+
     const [selectedYear, setSelectedYear] = useState<string>("");
     const [selectedMajor, setSelectedMajor] = useState<("elektro" | "komputer" | "biomedik") | "">("");
 
@@ -41,9 +42,11 @@ export default function DiktatAsistensiList(props: Props) {
                 <article className={styles.diktatAsistensiList__card} key={index}>
                     <div>
                         <h4>{content.name}</h4>
-                        <p className={styles.capitalize}>
-                            {content.major.map(major => `Teknik ${major}`).join(", ")}, {" "}
-                            {content.year.map(y => `Term ${props.data.ganjil_genap === 'genap' ? 2 * y : 2 * y - 1}`).join(", ")}
+                        <p className={styles.diktatAsistensiList__details}>
+                            {content.major.map(major => `Teknik ${major}`).join(", ")}
+                        </p>
+                        <p className={styles.diktatAsistensiList__details}>
+                            {content.year.map(y => `Term ${convertToTerm(y)}`).join(", ")}
                         </p>
                     </div
 
@@ -52,7 +55,7 @@ export default function DiktatAsistensiList(props: Props) {
                     <img className={`${styles.diktatAsistensiList__img} img-skeleton`}
                          src={content.img}
                          loading="lazy"
-                         alt={`Cover Diktat ${content.name}, ${content.major.join(", ")} ${content.year.map(y => convertYear(y)).join(", ")}`}
+                         alt={`Cover Diktat ${content.name}, ${content.major.join(", ")} ${content.year.map(y => `Term ${convertToTerm(y)}`).join(", ")}`}
                     />
                     <div className={styles.diktatAsistensiList__btnContainer}>
                         <a href={content.googleDriveLink} className={styles.diktatAsistensiList__btn}>
@@ -84,9 +87,9 @@ export default function DiktatAsistensiList(props: Props) {
                     value={selectedYear}
                     onChange={(e) => setSelectedYear(e.target.value)}
                 >
-                    <option value="" disabled>Angkatan</option>
-                    <option value="1">{currentLatestYear}</option>
-                    <option value="2">{currentLatestYear - 1}</option>
+                    <option value="" disabled>Semester</option>
+                    <option value="1">Semester {convertToTerm(1)}</option>
+                    <option value="2">Semester {convertToTerm(2)}</option>
                 </select>
                 <label htmlFor="major-option" className="visually-hidden">Pilih Angkatan</label>
                 <select

@@ -1,32 +1,56 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import type {CollectionEntry} from "astro:content";
 import { getCollection } from 'astro:content';
-import Card from "../../components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+import AnchorCard from "../../components/AnchorCard.astro";
 
 const diktatAsistensiArr = await getCollection("diktatAsistensiData");
+const diktatAsistensiArrSorted: Array<{
+    year: number,
+    collections: Array<CollectionEntry<"diktatAsistensiData">>
+}> = [];
+const yearsTemp: Array<number> = [];
+diktatAsistensiArr.forEach((diktat) => {
+    if (!yearsTemp.includes(diktat.data.year)) {
+        yearsTemp.push(diktat.data.year);
+        diktatAsistensiArrSorted.push({year: diktat.data.year, collections: [diktat]});
+    } else {
+        const i = diktatAsistensiArrSorted.findIndex(element => element.year === diktat.data.year)
+        diktatAsistensiArrSorted[i].collections.push(diktat);
+    }
+})
+diktatAsistensiArrSorted.sort((a, b) => b.year - a.year);
 ---
 
-<Layout title="Kumpulan Diktat | AKPRO IME FTUI 2025">
+<Layout title="Kumpulan Diktat | Akpro IME FTUI">
     <section class="intro full-width">
         <h1>Kumpulan Diktat</h1>
         <p>Diktat Tahun 2018 - 2024</p>
         <div class="intro-cards">
-            <a href="/diktat-asistensi">
-                <Card>
-                    <h3>Diktat dan Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                    <p>Main page Diktat dan Asistensi</p>
-                </Card>
-            </a>
+            <AnchorCard href="/diktat-asistensi">
+                <h3>Diktat dan Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <p>Main page Diktat dan Asistensi</p>
+            </AnchorCard>
         </div>
     </section>
-    <section>
+    <section class="content">
         {
-            diktatAsistensiArr.map(diktatAsistensi => (
-                <a href={`/diktat-asistensi/kumpulan-diktat/${diktatAsistensi.id}`}>
-                    {diktatAsistensi.id}
-                </a>
-                <br/>
-            ))
+            diktatAsistensiArrSorted.map(diktat => (
+                <div>
+                    <h2 class="year-title">Tahun {diktat.year}</h2>
+                    <ul>
+                        {
+                            diktat.collections.map((collection) => (
+                                <li>
+                                    <a href={`/diktat-asistensi/kumpulan-diktat/${collection.id}`} class="content__link">
+                                        Diktat {collection.data.uts_uas.toUpperCase()} {collection.data.ganjil_genap} {collection.data.year}
+                                    </a>
+                                </li>
+                        ))
+                        }
+                    </ul>
+                </div>
+        ))
         }
     </section>
 </Layout>
@@ -44,6 +68,7 @@ const diktatAsistensiArr = await getCollection("diktatAsistensiData");
         gap: 1rem;
         padding-block-start: 1rem;
     }
+
     .material-symbols-rounded {
         vertical-align: middle;
     }
@@ -64,6 +89,14 @@ const diktatAsistensiArr = await getCollection("diktatAsistensiData");
         border-bottom: 1px solid rgb(var(--accent));
     }
 
+    .year-title {
+        text-decoration: none;
+        color: inherit;
+        position: relative;
+        isolation: isolate;
+        border-bottom: 2px solid rgb(var(--accent));
+    }
+
     a {
         color: inherit;
         text-decoration: none;
@@ -71,4 +104,13 @@ const diktatAsistensiArr = await getCollection("diktatAsistensiData");
         width: 100%;
     }
 
+    .content {
+        padding-block: 1rem;
+    }
+
+    .content__link {
+        text-transform: capitalize;
+    }
+
 </style>
+

@@ -1,28 +1,18 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 
+interface Props extends HTMLAttributes<"div"> {}
+
+const { ...attr } = Astro.props
 ---
 
 
-<div class="card">
+<div {...attr}>
     <slot/>
 </div>
 
 <style>
-    .card {
-        width: 100%;
-        box-shadow: var(--box-shadow);
-        border-radius: 4px;
-        padding: 0.5em 1em;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5em;
-        justify-content: space-between;
-        background-color: rgba(var(--primary), 0.05);
-    }
-</style>
-<!-- This is so cursed, find a better solution -->
-<style is:global>
-    .diktatAsistensiCard {
+    div {
         width: 100%;
         box-shadow: var(--box-shadow);
         border-radius: 4px;
