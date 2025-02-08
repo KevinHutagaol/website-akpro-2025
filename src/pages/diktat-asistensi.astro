@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import AnchorCard from "../components/AnchorCard.astro";
 import DiktatAsistensiList from "../components/diktat-asistensi/DiktatAsistensiList";
 import isEntryLatest from "../scripts/isEntryLatest";
-import { getCollection } from 'astro:content';
+import {getCollection} from 'astro:content';
 import fillEmptyImgWithPlaceholder from "../scripts/fillEmptyImgWithPlaceholder";
 
 const diktatAsistensiArr = await getCollection("diktatAsistensiData");
@@ -29,15 +29,21 @@ const latestDiktatAsistensiReplacedImg = {
         <h1>Diktat dan Asistensi</h1>
         <div class="intro-cards">
             <AnchorCard href="/diktat-asistensi/jadwal-asistensi">
-                <h3>Jadwal Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                <p><i class="material-symbols-rounded icon-b">calendar_month</i> Jadwal Asistensi UTS Genap 2025</p>
+                <h3>Jadwal Asistensi
+                    <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+                </h3>
+                <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#calendar-days"/></svg> Jadwal Asistensi UTS Genap 2025</p>
             </AnchorCard>
             <AnchorCard href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
-                <h3>Rekaman Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-                <p><i class="material-symbols-rounded icon-b">smart_display</i> Channel Youtube Akpro</p>
+                <h3>Rekaman Asistensi
+                    <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+                </h3>
+                <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#youtube-logo"/></svg> Channel Youtube Akpro</p>
             </AnchorCard>
             <AnchorCard href="/diktat-asistensi/kumpulan-diktat">
-                <h3>Kumpulan Diktat<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <h3>Kumpulan Diktat
+                    <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+                </h3>
                 <p>Diktat tahun 2018 - 2024</p>
             </AnchorCard>
         </div>

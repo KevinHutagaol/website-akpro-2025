@@ -1,6 +1,6 @@
 ---
 import type {CollectionEntry} from "astro:content";
-import { getCollection } from 'astro:content';
+import {getCollection} from 'astro:content';
 import Layout from "../../layouts/Layout.astro";
 import AnchorCard from "../../components/AnchorCard.astro";
 
@@ -28,7 +28,9 @@ diktatAsistensiArrSorted.sort((a, b) => b.year - a.year);
         <p>Diktat Tahun 2018 - 2024</p>
         <div class="intro-cards">
             <AnchorCard href="/diktat-asistensi">
-                <h3>Diktat dan Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
+                <h3>Diktat dan Asistensi
+                    <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+                </h3>
                 <p>Main page Diktat dan Asistensi</p>
             </AnchorCard>
         </div>
@@ -36,21 +38,22 @@ diktatAsistensiArrSorted.sort((a, b) => b.year - a.year);
     <section class="content">
         {
             diktatAsistensiArrSorted.map(diktat => (
-                <div>
-                    <h2 class="year-title">Tahun {diktat.year}</h2>
-                    <ul>
-                        {
-                            diktat.collections.map((collection) => (
-                                <li>
-                                    <a href={`/diktat-asistensi/kumpulan-diktat/${collection.id}`} class="content__link">
-                                        Diktat {collection.data.uts_uas.toUpperCase()} {collection.data.ganjil_genap} {collection.data.year}
-                                    </a>
-                                </li>
-                        ))
-                        }
-                    </ul>
-                </div>
-        ))
+                    <div>
+                        <h2 class="year-title">Tahun {diktat.year}</h2>
+                        <ul>
+                            {
+                                diktat.collections.map((collection) => (
+                                        <li>
+                                            <a href={`/diktat-asistensi/kumpulan-diktat/${collection.id}`}
+                                               class="content__link">
+                                                Diktat {collection.data.uts_uas.toUpperCase()} {collection.data.ganjil_genap} {collection.data.year}
+                                            </a>
+                                        </li>
+                                ))
+                            }
+                        </ul>
+                    </div>
+            ))
         }
     </section>
 </Layout>

@@ -5,15 +5,39 @@ import AnchorCard from "../../components/AnchorCard.astro";
 
 <ArticleCards title="Media Belajar">
     <div slot="cards" class="intro-cards">
-        <AnchorCard href="/diktat-asistensi">
-            <h3>Diktat dan Asistensi Terbaru <i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-            <p><i class="material-symbols-rounded icon-b">calendar_month</i> Main Page Diktat dan Asistensi</p>
+        <AnchorCard href="https://drive.google.com/drive/folders/1VJlvzJXKLQNutvG_ieRvpvDJbaV6p2b6?usp=drive_link"
+                    target="_blank">
+            <h3>E-book
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </h3>
+            <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#book-open"/></svg> Kumpulan E-book Mata Kuliah DTE</p>
         </AnchorCard>
-        <AnchorCard href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
-            <h3>Rekaman Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-            <p><i class="material-symbols-rounded icon-b">smart_display</i> Channel Youtube Akpro</p>
+        <AnchorCard href="https://youtube.com/playlist?list=PLvvIG2wS7Z6H11k9_Vzy9X7hBDDT5E5Gb&si=0f4HjllSZGKJnjQB" target="_blank">
+            <h3>Dasar-Dasar Rangkaian Listrik
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </h3>
+            <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#youtube-logo"/></svg> Playlist Youtube Dasar-Dasar Rangkaian Listrik </p>
+        </AnchorCard>
+        <AnchorCard href="https://youtube.com/playlist?list=PLPo1kEEL45jz3t2n0iVZBiZOXtfrZgWYP&si=YYMuBqPiQttmlPsn" target="_blank">
+            <h3>Rangkaian Listrik - Pak Tomy
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </h3>
+            <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#youtube-logo"/></svg> Playlist Youtube Rangkaian Listrik - Pak Tomy </p>
+        </AnchorCard>
+        <AnchorCard href="https://youtube.com/playlist?list=PLF9K2dVsV_xK8wSXt5Gi24lhYFhWx0HzA&si=LKHmmRRm1uLjskm4" target="_blank">
+            <h3>Dasar Sistem Digital
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </h3>
+            <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#youtube-logo"/></svg> Playlist Youtube Dasar Sistem Digital </p>
+        </AnchorCard>
+        <AnchorCard href="https://youtube.com/playlist?list=PLPo1kEEL45jyOsWa4zuKJymIGs9L0s1Yq&si=nI-0vISgOLq_2eHm" target="_blank">
+            <h3>Matematika Teknik - Pak Tomy
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </h3>
+            <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#youtube-logo"/></svg> Playlist Youtube Matematika Teknik - Pak Tomy </p>
         </AnchorCard>
     </div>
+
 </ArticleCards>
 
 <style>
@@ -30,7 +54,7 @@ import AnchorCard from "../../components/AnchorCard.astro";
     }
 
     .icon-b {
-        transform: translateY(-2px);
+        transform: translateY(-1px);
     }
 
     .material-symbols-rounded {

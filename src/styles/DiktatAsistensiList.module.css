@@ -1,5 +1,12 @@
 .diktatAsistensiList {
-    margin-bottom: auto;
+    overflow-x: visible;
+}
+
+.diktatAsistensiList__select_container {
+    display: flex;
+    width: 100%;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 .diktatAsistensiList__select {
     display: inline-block;
@@ -30,7 +37,7 @@
 
 .diktatAsistensiList__cards {
     display: grid;
-    grid-auto-rows: clamp(280px, 280px, auto);
+    grid-auto-rows: auto;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     justify-items: center;
     width: 100%;
@@ -41,6 +48,12 @@
 @media (max-width: 860px) {
     .diktatAsistensiList__cards {
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    }
+}
+
+@media (max-width: 400px) {
+    .diktatAsistensiList__cards {
+        grid-template-columns: auto;
     }
 }
 
@@ -64,7 +77,9 @@
 }
 
 .diktatAsistensiList__btn {
-    display: block;
+    display: flex;
+    justify-content: center;
+    gap: 0.25em;
     text-align: center;
     padding: 0.25em 0;
     border: 1px solid rgba(var(--secondary), 0.35);
@@ -112,6 +127,9 @@
     text-align: center;
 }
 
+.pdf_symbol {
+    height: 1.5em;
+}
 
 .capitalize {
     text-transform: capitalize;

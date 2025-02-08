@@ -6,12 +6,16 @@ import AnchorCard from "../../components/AnchorCard.astro";
 <ArticleCards title="Diktat dan Asistensi">
     <div slot="cards" class="intro-cards">
         <AnchorCard href="/diktat-asistensi">
-            <h3>Diktat dan Asistensi Terbaru <i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-            <p><i class="material-symbols-rounded icon-b">calendar_month</i> Main Page Diktat dan Asistensi</p>
+            <h3>Diktat dan Asistensi Terbaru
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </h3>
+            <p ><i class="material-symbols-rounded icon-b">calendar_month</i> Main Page Diktat dan Asistensi</p>
         </AnchorCard>
         <AnchorCard href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
-            <h3>Rekaman Asistensi<i class="material-symbols-rounded icon-a">double_arrow</i></h3>
-            <p><i class="material-symbols-rounded icon-b">smart_display</i> Channel Youtube Akpro</p>
+            <h3>Rekaman Asistensi
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </h3>
+            <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#youtube-logo"/></svg> Channel Youtube Akpro</p>
         </AnchorCard>
     </div>
 </ArticleCards>
@@ -30,7 +34,7 @@ import AnchorCard from "../../components/AnchorCard.astro";
     }
 
     .icon-b {
-        transform: translateY(-2px);
+        transform: translateY(-1px);
     }
 
     .material-symbols-rounded {

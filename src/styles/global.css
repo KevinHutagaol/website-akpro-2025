@@ -51,6 +51,7 @@
 *, *::before, *::after {
     box-sizing: border-box;
     /*background-color: rgb( 255 0 0 /0.2 );*/
+    /*border: 1px solid red;*/
 }
 
 html {
@@ -185,6 +186,29 @@ img.full-width {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+}
+
+.hide-text {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.svg-icon {
+    display: inline-block;
+    height: 1em;
+    margin-bottom: -0.1em;
+    aspect-ratio: 1/1;
+}
+
+.large-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 0.25em;
+    width: fit-content;
+}
+.large-icon-wrapper > svg {
+    height: 1.5em;
 }
 
 /* ------- */

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
 import styles from "/src/styles/DiktatAsistensiList.module.css"
 import "/src/styles/global.css"
 
@@ -21,7 +21,7 @@ interface Props {
 }
 
 export default function DiktatAsistensiList(props: Props) {
-    const convertToTerm = (year: number):number => props.data.ganjil_genap === 'genap' ?  2 * year : 2 * year - 1
+    const convertToTerm = (year: number): number => props.data.ganjil_genap === 'genap' ? 2 * year : 2 * year - 1
 
     const [selectedYear, setSelectedYear] = useState<string>("");
     const [selectedMajor, setSelectedMajor] = useState<("elektro" | "komputer" | "biomedik") | "">("");
@@ -48,23 +48,25 @@ export default function DiktatAsistensiList(props: Props) {
                         <p className={styles.diktatAsistensiList__details}>
                             {content.year.map(y => `Term ${convertToTerm(y)}`).join(", ")}
                         </p>
-                    </div
-
-
-                    >
-                    <img className={`${styles.diktatAsistensiList__img} img-skeleton`}
+                    </div>
+                    <img className={`${styles.diktatAsistensiList__img} img-skeleton hide-text`}
                          src={content.img}
                          loading="lazy"
                          alt={`Cover Diktat ${content.name}, ${content.major.join(", ")} ${content.year.map(y => `Term ${convertToTerm(y)}`).join(", ")}`}
                     />
                     <div className={styles.diktatAsistensiList__btnContainer}>
-                        <a href={content.googleDriveLink} className={styles.diktatAsistensiList__btn}>
-                            <i className="material-symbols-rounded">picture_as_pdf</i> PDF
+                        <a href={content.googleDriveLink}
+                           className={styles.diktatAsistensiList__btn}>
+                            <svg className={`svg-icon ${styles.pdf_symbol}`}>
+                                <use href="#picture-as-pdf"/>
+                            </svg>
+                            PDF
                         </a>
                         {props.removeMeetingsLink ? null : (
                             <a href={content.zoomMeetingsLink}
                                className={styles.diktatAsistensiList__btn}>
-                                <i className="material-symbols-rounded">videocam</i>Zoom</a>
+                                <i className="material-symbols-rounded">videocam</i>Zoom
+                            </a>
                         )
 
                         }
@@ -79,31 +81,33 @@ export default function DiktatAsistensiList(props: Props) {
                 <h2 className={`${styles.diktatAsistensiList__h2} ${styles.capitalize}`}>
                     {props.data.uts_uas.toUpperCase()} {props.data.ganjil_genap} {props.data.year}
                 </h2>
-                <label htmlFor="year-option" className="visually-hidden">Pilih Tahun</label>
-                <select
-                    className={styles.diktatAsistensiList__select}
-                    name="year-option"
-                    id="year-option"
-                    value={selectedYear}
-                    onChange={(e) => setSelectedYear(e.target.value)}
-                >
-                    <option value="" disabled>Semester</option>
-                    <option value="1">Semester {convertToTerm(1)}</option>
-                    <option value="2">Semester {convertToTerm(2)}</option>
-                </select>
-                <label htmlFor="major-option" className="visually-hidden">Pilih Angkatan</label>
-                <select
-                    className={styles.diktatAsistensiList__select}
-                    name="major-option"
-                    id="major-option"
-                    value={selectedMajor}
-                    onChange={(e) => setSelectedMajor(e.target.value as (("elektro" | "komputer" | "biomedik") | ""))}
-                >
-                    <option value="" disabled>Jurusan</option>
-                    <option value="elektro">Teknik Elektro</option>
-                    <option value="komputer">Teknik Komputer</option>
-                    <option value="biomedik">Teknik Biomedik</option>
-                </select>
+                <div className={styles.diktatAsistensiList__select_container}>
+                    <label htmlFor="year-option" className="visually-hidden">Pilih Tahun</label>
+                    <select
+                        className={styles.diktatAsistensiList__select}
+                        name="year-option"
+                        id="year-option"
+                        value={selectedYear}
+                        onChange={(e) => setSelectedYear(e.target.value)}
+                    >
+                        <option value="" disabled>Semester</option>
+                        <option value="1">Semester {convertToTerm(1)}</option>
+                        <option value="2">Semester {convertToTerm(2)}</option>
+                    </select>
+                    <label htmlFor="major-option" className="visually-hidden">Pilih Angkatan</label>
+                    <select
+                        className={styles.diktatAsistensiList__select}
+                        name="major-option"
+                        id="major-option"
+                        value={selectedMajor}
+                        onChange={(e) => setSelectedMajor(e.target.value as (("elektro" | "komputer" | "biomedik") | ""))}
+                    >
+                        <option value="" disabled>Jurusan</option>
+                        <option value="elektro">Teknik Elektro</option>
+                        <option value="komputer">Teknik Komputer</option>
+                        <option value="biomedik">Teknik Biomedik</option>
+                    </select>
+                </div>
             </div>
             {cardsFiltered.length > 0 ?
                 <div className={styles.diktatAsistensiList__cards}>{cardsFiltered}</div>
