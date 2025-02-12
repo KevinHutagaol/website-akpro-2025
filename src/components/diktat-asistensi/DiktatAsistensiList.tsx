@@ -62,14 +62,6 @@ export default function DiktatAsistensiList(props: Props) {
                             </svg>
                             PDF
                         </a>
-                        {props.removeMeetingsLink ? null : (
-                            <a href={content.zoomMeetingsLink}
-                               className={styles.diktatAsistensiList__btn}>
-                                <i className="material-symbols-rounded">videocam</i>Zoom
-                            </a>
-                        )
-
-                        }
                     </div>
                 </article>
             )

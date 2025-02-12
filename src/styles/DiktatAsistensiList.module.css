@@ -79,6 +79,7 @@
 .diktatAsistensiList__btn {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.25em;
     text-align: center;
     padding: 0.25em 0;
@@ -116,7 +117,7 @@
 }
 
 .diktatAsistensiList__details {
-    color: rgb(var(--accent));
+    color: rgb(var(--primary));
     text-transform: capitalize;
 }
 
@@ -127,7 +128,7 @@
     text-align: center;
 }
 
-.pdf_symbol {
+.diktatAsistensiList__btn .pdf_symbol {
     height: 1.5em;
 }
 

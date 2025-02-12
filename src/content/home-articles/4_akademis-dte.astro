@@ -1,6 +1,7 @@
 ---
 import ArticleCards from "../../components/ArticleCards.astro";
 import AnchorCard from "../../components/AnchorCard.astro";
+import Card from "../../components/Card.astro";
 ---
 
 <ArticleCards title="Akademis DTE">
@@ -19,14 +20,38 @@ import AnchorCard from "../../components/AnchorCard.astro";
             </h3>
             <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#youtube-logo"/></svg> Recording Sosialisasi MBKM DTE 2024 </p>
         </AnchorCard>
+        <Card class="a-list">
+            <h3> Buku Kurikulum 2024-2025</h3>
+            <a href="https://online.pubhtml5.com/sstc/yjeo/">
+                <svg class="svg-icon"><use href="#book-open"/></svg> Buku Kurikulum Teknik Elektro
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </a>
+            <a href="https://online.pubhtml5.com/sstc/kcli/">
+                <svg class="svg-icon"><use href="#book-open"/></svg> Buku Kurikulum Teknik Komputer
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </a>
+            <a href="https://online.pubhtml5.com/sstc/swrt/">
+                <svg class="svg-icon"><use href="#book-open"/></svg> Buku Kurikulum Teknik Biomedik
+                <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+            </a>
+        </Card>
     </div>
 
 </ArticleCards>
 
 <style>
+
     a {
         display: block;
-        color: inherit;
+        color: rgba(var(--text));
+        text-decoration: none;
+        width: 100%;
+        transition: color 0.15s ease-in-out;
+    }
+
+    .a-list > a {
+        display: block;
+        color: rgb(var(--primary));
         text-decoration: none;
         text-decoration-color: transparent;
         width: 100%;
@@ -60,5 +85,7 @@ import AnchorCard from "../../components/AnchorCard.astro";
         border-bottom: 1px solid rgb(var(--accent));
         text-wrap: balance;
     }
+
+
 </style>
 

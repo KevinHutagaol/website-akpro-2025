@@ -1,9 +1,10 @@
 import {defineCollection, z} from "astro:content";
-
-import {glob, file} from "astro/loaders";
+// import {glob, file} from "astro/loaders";
+import fetchAsistensiScheduleData from "./scripts/fetchAsistensiScheduleData.ts";
+import fetchDiktatAsistensiData from "./scripts/fetchDiktatAsistensiData.ts";
 
 const diktatAsistensiData = defineCollection({
-    loader: glob({pattern: "*.json", base: "src/content/diktat-asistensi/"}),
+    loader: fetchDiktatAsistensiData,
     schema: z.object({
         year: z.number(),
         uts_uas: z.enum(["uts", "uas"]),
@@ -16,11 +17,19 @@ const diktatAsistensiData = defineCollection({
                     major: z.array(z.enum(["elektro", "komputer", "biomedik"])),
                     img: z.string().optional(),
                     googleDriveLink: z.string(),
-                    includesMeetingLink: z.boolean(),
                     zoomMeetingsLink: z.string().optional(),
                 })
             )
     })
 })
 
-export const collections = { diktatAsistensiData };
+const jadwalAsisetnsiData = defineCollection({
+    loader: fetchAsistensiScheduleData,
+    schema: z.object({
+        name: z.string(),
+        person: z.string(),
+        date: z.date()
+    })
+})
+
+export const collections = {diktatAsistensiData, jadwalAsisetnsiData};
