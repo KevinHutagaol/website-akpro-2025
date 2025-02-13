@@ -10,7 +10,6 @@ interface Props {
             major: ("elektro" | "komputer" | "biomedik")[];
             img?: string;
             googleDriveLink: string;
-            includesMeetingLink: boolean;
             zoomMeetingsLink?: string;
         }>;
         year: number;
