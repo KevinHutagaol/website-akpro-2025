@@ -166,15 +166,21 @@ img.full-width {
     isolation: isolate;
     background-clip: content-box;
     border-radius: inherit;
+    /* Fix issue with skeleton bleeding out of image*/
+    background: linear-gradient(hsl(0 0 100% / 0.5), hsl(0 0 100% / 0.5)) no-repeat center center;
+    background-size: 99% 99%;
     animation: img-skeleton 0.5s ease-in-out infinite alternate;
 }
 
 @keyframes img-skeleton {
     0% {
-        background-color: hsl(0 0 100% / 0.5);
+        background: linear-gradient(hsl(0 0 100% / 0.5), hsl(0 0 100% / 0.5)) no-repeat center center;
+        background-size: 99% 99%;
+
     }
     100% {
-        background-color: hsl(0 0 70% / 0.5);
+        background: linear-gradient(hsl(0 0 100% / 0.5), hsl(0 0 100% / 0.5)) no-repeat center center;
+        background-size: 99% 99%;
     }
 }
 
@@ -207,6 +213,7 @@ img.full-width {
     gap: 0.25em;
     width: fit-content;
 }
+
 .large-icon-wrapper > svg {
     height: 1.5em;
 }
