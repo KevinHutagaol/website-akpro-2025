@@ -29,7 +29,9 @@ diktatAsistensiArrSorted.sort((a, b) => b.year - a.year);
         <div class="intro-cards">
             <AnchorCard href="/diktat-asistensi">
                 <h3>Diktat dan Asistensi
-                    <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+                    <svg class="svg-icon">
+                        <use href="#arrow-top-right-on-square"/>
+                    </svg>
                 </h3>
                 <p>Main page Diktat dan Asistensi</p>
             </AnchorCard>
@@ -47,6 +49,9 @@ diktatAsistensiArrSorted.sort((a, b) => b.year - a.year);
                                             <a href={`/diktat-asistensi/kumpulan-diktat/${collection.id}`}
                                                class="content__link">
                                                 Diktat {collection.data.uts_uas.toUpperCase()} {collection.data.ganjil_genap} {collection.data.year}
+                                                <svg class="svg-icon">
+                                                    <use href="#arrow-top-right-on-square"/>
+                                                </svg>
                                             </a>
                                         </li>
                                 ))
@@ -113,6 +118,23 @@ diktatAsistensiArrSorted.sort((a, b) => b.year - a.year);
 
     .content__link {
         text-transform: capitalize;
+        font-size: var(--fs-1);
+        position: relative;
+        isolation: isolate;
+    }
+
+    .content__link::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        inset: 100% 0 -2px 0;
+        background-color: rgb(var(--primary));
+        width: 0;
+        transition: width 0.5s;
+    }
+
+    .content__link:hover::after {
+        width: 100%;
     }
 
 </style>

@@ -112,7 +112,7 @@
             </svg>
         </a>
         <div class="header-btn">
-            <a href="/"> <svg class="svg-icon"><use href="#home"/></svg> </a>
+            <a href="/" aria-label="Home button"> <svg class="svg-icon"><use href="#home"/></svg> </a>
             <button id="nav-btn" class="nav-btn">
                 <svg class="svg-icon"><use href="#menu"/></svg>
             </button>
@@ -260,12 +260,18 @@
         isolation: isolate;
     }
 
-    nav a:hover::after {
+    nav a::after {
         content: '';
         position: absolute;
         z-index: -2;
         inset: 100% 0 -2px 0;
         background: rgb(var(--primary));
+        width: 0;
+        transition: width 0.5s;
+    }
+
+    nav a:hover::after {
+        width: 100%;
     }
 
     nav span {
