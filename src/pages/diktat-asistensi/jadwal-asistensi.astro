@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import AnchorCard from "../../components/AnchorCard.astro";
+import {YOUTUBE_URL} from "astro:env/client";
 ---
 
 <Layout title="Jadwal Asistensi | Akpro IME FTUI">
@@ -8,6 +9,12 @@ import AnchorCard from "../../components/AnchorCard.astro";
         <h1>Jadwal Asistensi</h1>
         <p>Diktat Tahun 2018 - 2024</p>
         <div class="intro-cards">
+            <AnchorCard href={YOUTUBE_URL}>
+                <h3>Rekaman Asistensi
+                    <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
+                </h3>
+                <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#youtube-logo"/></svg> Channel Youtube Akpro</p>
+            </AnchorCard>
             <AnchorCard href="/diktat-asistensi">
                 <h3>Diktat dan Asistensi
                     <svg class="svg-icon">

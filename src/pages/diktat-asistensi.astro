@@ -5,6 +5,7 @@ import DiktatAsistensiList from "../components/diktat-asistensi/DiktatAsistensiL
 import isEntryLatest from "../scripts/isEntryLatest";
 import {getCollection} from 'astro:content';
 import fillEmptyImgWithPlaceholder from "../scripts/fillEmptyImgWithPlaceholder";
+import { YOUTUBE_URL } from "astro:env/client";
 
 const diktatAsistensiArr = await getCollection("diktatAsistensiData");
 const imgPlaceholderArrModule: Array<any> = Object.values(import.meta.glob("/src/assets/placeholder_img/*.svg", {eager: true}))
@@ -34,7 +35,7 @@ const latestDiktatAsistensiReplacedImg = {
                 </h3>
                 <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#calendar-days"/></svg> Jadwal Asistensi UTS Genap 2025</p>
             </AnchorCard>
-            <AnchorCard href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
+            <AnchorCard href={YOUTUBE_URL}>
                 <h3>Rekaman Asistensi
                     <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
                 </h3>

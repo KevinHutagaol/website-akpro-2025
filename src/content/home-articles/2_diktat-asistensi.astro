@@ -1,6 +1,7 @@
 ---
 import ArticleCards from "../../components/ArticleCards.astro";
 import AnchorCard from "../../components/AnchorCard.astro";
+import { YOUTUBE_URL } from "astro:env/client";
 ---
 
 <ArticleCards title="Diktat dan Asistensi">
@@ -11,7 +12,7 @@ import AnchorCard from "../../components/AnchorCard.astro";
             </h3>
             <p class="large-icon-wrapper"><svg class="svg-icon"><use href="#book-open"/></svg> Main Page Diktat dan Asistensi</p>
         </AnchorCard>
-        <AnchorCard href="https://youtube.com/@akademisdankeprofesianime2024?si=sAk9-wxTvyHhRY3T">
+        <AnchorCard href={YOUTUBE_URL}>
             <h3>Rekaman Asistensi
                 <svg class="svg-icon"><use href="#arrow-top-right-on-square"/></svg>
             </h3>
