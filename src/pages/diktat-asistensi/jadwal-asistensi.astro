@@ -1,13 +1,21 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import AnchorCard from "../../components/AnchorCard.astro";
-import {YOUTUBE_URL} from "astro:env/client";
+import { YOUTUBE_URL } from "astro:env/client";
+import AsistensiSchedule from "../../components/jadwal-asistensi/AsistensiSchedule";
+import isEntryLatest from "../../scripts/isEntryLatest";
+import { getCollection } from 'astro:content';
+
+const asistensiArr = await getCollection("jadwalAsisetnsiData");
+
+const latestAsistensi = asistensiArr.reduce((acc, cur) => {
+    return isEntryLatest(acc.data, cur.data) ? cur : acc;
+}, asistensiArr[0])
 ---
 
 <Layout title="Jadwal Asistensi | Akpro IME FTUI">
     <section class="intro full-width">
         <h1>Jadwal Asistensi</h1>
-        <p>Diktat Tahun 2018 - 2024</p>
         <div class="intro-cards">
             <AnchorCard href={YOUTUBE_URL}>
                 <h3>Rekaman Asistensi
@@ -24,6 +32,9 @@ import {YOUTUBE_URL} from "astro:env/client";
                 <p>Main page Diktat dan Asistensi</p>
             </AnchorCard>
         </div>
+    </section>
+    <section class="diktat-asistensi-latest">
+        <AsistensiSchedule client:load data={latestAsistensi.data}/>
     </section>
 </Layout>
 

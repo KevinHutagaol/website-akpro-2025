@@ -1,14 +1,14 @@
 import {defineCollection, z} from "astro:content";
 // import {glob, file} from "astro/loaders";
-import fetchAsistensiScheduleData from "./scripts/fetchAsistensiScheduleData.ts";
-import fetchDiktatAsistensiData from "./scripts/fetchDiktatAsistensiData.ts";
+import { fetchDiktatData, fetchAsistensiData } from "./scripts/fetchDiktatAsistensiData.ts";
 
 const diktatAsistensiData = defineCollection({
-    loader: fetchDiktatAsistensiData,
+    loader: fetchDiktatData,
     schema: z.object({
         year: z.number(),
         uts_uas: z.enum(["uts", "uas"]),
         ganjil_genap: z.enum(["ganjil", "genap"]),
+        is_published: z.boolean(),
         content:
             z.array(
                 z.object({
@@ -17,18 +17,34 @@ const diktatAsistensiData = defineCollection({
                     major: z.array(z.enum(["elektro", "komputer", "biomedik"])),
                     img: z.string().optional(),
                     googleDriveLink: z.string(),
-                    zoomMeetingsLink: z.string().optional(),
                 })
             )
     })
 })
 
 const jadwalAsisetnsiData = defineCollection({
-    loader: fetchAsistensiScheduleData,
+    loader: fetchAsistensiData,
     schema: z.object({
-        name: z.string(),
-        person: z.string(),
-        date: z.date()
+        year: z.number(),
+        uts_uas: z.enum(["uts", "uas"]),
+        ganjil_genap: z.enum(["ganjil", "genap"]),
+        is_published: z.boolean(),
+        content:
+            z.array(
+                z.object({
+                    name: z.string(),
+                    person: z.array(z.object({
+                        name: z.string(),
+                        year: z.number(),
+                        major: z.enum(["elektro", "komputer", "biomedik"])
+                    })),
+                    date: z.date(),
+                    year: z.array(z.number()),
+                    major: z.array(z.enum(["elektro", "komputer", "biomedik"])),
+                    zoomMeetingsLink: z.string().optional(),
+                    recordingsLink: z.string().optional(),
+                })
+            )
     })
 })
 
