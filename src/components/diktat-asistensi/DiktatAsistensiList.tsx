@@ -57,7 +57,8 @@ export default function DiktatAsistensiList(props: Props) {
                     />
                     <div className={styles.diktatAsistensiList__btnContainer}>
                         <a href={content.googleDriveLink}
-                           className={styles.diktatAsistensiList__btn}>
+                           className={`${styles.diktatAsistensiList__btn} ${content.googleDriveLink === "" ? styles.disabled_link : ''}`}
+                            >
                             <svg className={`svg-icon ${styles.pdf_symbol}`}>
                                 <use href="#picture-as-pdf"/>
                             </svg>

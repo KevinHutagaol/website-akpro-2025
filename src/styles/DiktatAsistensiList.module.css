@@ -66,6 +66,12 @@
     transition: background-color 0.15s ease-in-out;
 }
 
+a.disabled_link {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: default;
+}
+
 .diktatAsistensiList__btn:hover {
     background-color: rgba(var(--secondary), 0.5);
 }

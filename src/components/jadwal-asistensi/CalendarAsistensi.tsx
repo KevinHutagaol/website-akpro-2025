@@ -15,5 +15,5 @@ interface Props {
 
 export default function CalendarAsistensi(props: Props) {
 
-    return <p>CalendarAsistensi</p>
+    return <p>CalendarAsistensi {props.options.year ? props.options.year : "all"}  {props.options.major ? props.options.major : "all"}</p>
 }

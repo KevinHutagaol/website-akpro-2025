@@ -15,5 +15,5 @@ interface Props {
 
 export default function ListAsistensi(props: Props) {
 
-    return <p>ListAsistensi</p>
+    return <p>ListAsistensi {props.options.year ? props.options.year : "all"}  {props.options.major ? props.options.major : "all"}</p>
 }
