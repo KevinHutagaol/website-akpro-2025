@@ -4,7 +4,7 @@ import "/src/styles/global.css"
 interface Props {
     content: Array<{
         name: string;
-        person: Array<{ name: string; year: number; major: string }>;
+        person: Array<{ name: string; year?: number; major?: string }>;
         date: Date;
     }>
     options: {

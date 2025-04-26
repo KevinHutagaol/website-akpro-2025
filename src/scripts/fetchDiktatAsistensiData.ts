@@ -20,7 +20,7 @@ interface DiktatContent {
 
 interface AsistensiContent {
     name: string;
-    person: Array<{ name: string; year: number; major: string }>;
+    person: Array<{ name: string; year?: number; major?: string }>;
     date: Date;
     year: Array<number>;
     major: Array<"elektro" | "komputer" | "biomedik">;
@@ -89,6 +89,7 @@ async function fetchAndParseAsistensiContent(url: string): Promise<Array<Asisten
     const response = await fetch(url);
     const data = await response.text();
     const csvParsed: Array<Array<string>> = parseCsv(data);
+    // console.table(csvParsed);
 
     let outputArr: Array<AsistensiContent> = [];
 
@@ -127,20 +128,22 @@ async function fetchAndParseAsistensiContent(url: string): Promise<Array<Asisten
                     const regexp = /^\s*(.+?)\s*(?:-\s*|\s+)([A-Za-z]+)\s*(\d+)\s*$/g;
                     const matches = [...str.matchAll(regexp)];
                     if (!matches.length) {
-                        console.error("Person String does not match", str);
+                        console.error("Error parsing name: ", str);
+                        person_arr.push({name: str.replace("\n", "")});
                     } else {
-                        const [match, person_name, person_code, person_year] = matches[0];
+                        const [_, person_name, person_code, person_year] = matches[0];
                         const person_major = convertMajorCode(person_code)!;
                         person_arr.push({name: person_name, major: person_major, year: parseInt(person_year)});
                     }
                 })
-
-                const [date_day, date_month, date_year] = csvParsed[ROW_DATE][j].split('-').map(d => parseInt(d));
-                const [hour, minute] = csvParsed[i + RELATIVE_ROW_TIME][j].split(':').map(d => parseInt(d));
+                const date_time = new Date(`${csvParsed[ROW_DATE][j]}T${csvParsed[i + RELATIVE_ROW_TIME][j]}:00`);
+                if (!date_time) {
+                    console.error("Datetime string invalid ", `${csvParsed[ROW_DATE][j]}T${csvParsed[i + RELATIVE_ROW_TIME][j]}:00`);
+                }
                 outputArr.push({
                     name: csvParsed[i + RELATIVE_ROW_NAME][j],
                     person: person_arr,
-                    date: new Date(date_year, date_month, date_day, hour, minute),
+                    date: date_time,
                     year: year_arr,
                     major: major_arr,
                     zoomMeetingsLink: csvParsed[i + RELATIVE_ROW_ZOOM_LINK][j],
@@ -228,4 +231,5 @@ export async function fetchAsistensiData(): Promise<Array<AsistensiData>> {
 
 // const test2 = await fetchAsistensiData();
 // console.log(JSON.stringify(test2, null, 2))
+// console.table(test2[0].content)
 

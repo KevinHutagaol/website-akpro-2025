@@ -14,14 +14,17 @@ interface Props {
         is_published: boolean;
         content: Array<{
             name: string;
-            person: Array<{ name: string; year: number; major: string }>;
+            person: Array<{ name: string; year?: number; major?: string }>;
             date: Date;
+            year: Array<number>;
+            major: Array<"elektro" | "komputer" | "biomedik">;
+            zoomMeetingsLink?: string;
+            recordingsLink?: string;
         }>;
     }
 }
 
 export default function AsistensiSchedule(props: Props) {
-    const convertToTerm = (year: number): number => props.data.ganjil_genap === 'genap' ? 2 * year : 2 * year - 1
 
     const [selectedYear, setSelectedYear] = useState<number>(0);
     const [selectedMajor, setSelectedMajor] = useState<("elektro" | "komputer" | "biomedik") | "">("");
@@ -30,6 +33,7 @@ export default function AsistensiSchedule(props: Props) {
     useEffect(() => {
         setSelectedYear(0);
         setSelectedMajor("");
+        setViewMode("list");
     }, []);
 
     // if (!props.data.is_published) {
@@ -101,7 +105,8 @@ export default function AsistensiSchedule(props: Props) {
                 <CalendarAsistensi content={props.data.content}
                                    options={{year: selectedYear, major: selectedMajor}}/>
                 : <ListAsistensi content={props.data.content}
-                                 options={{year: selectedYear, major: selectedMajor}}/>
+                                 options={{year: selectedYear, major: selectedMajor}}
+                                 ganjil_genap={props.data.ganjil_genap}/>
 
             }
         </section>

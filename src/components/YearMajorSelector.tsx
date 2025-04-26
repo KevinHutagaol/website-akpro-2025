@@ -23,7 +23,7 @@ export default function YearMajorSelector(props: Props) {
                 value={props.selectedYear.toString()}
                 onChange={(e) => props.setSelectedYear(parseInt(e.target.value))}
             >
-                <option value="0" disabled>Semester</option>
+                <option value="0">Semester</option>
                 <option value="1">Semester {convertToTerm(1)}</option>
                 <option value="2">Semester {convertToTerm(2)}</option>
             </select>
@@ -35,7 +35,7 @@ export default function YearMajorSelector(props: Props) {
                 value={props.selectedMajor}
                 onChange={(e) => props.setSelectedMajor(e.target.value as (("elektro" | "komputer" | "biomedik") | ""))}
             >
-                <option value="" disabled>Jurusan</option>
+                <option value="">Jurusan</option>
                 <option value="elektro">Teknik Elektro</option>
                 <option value="komputer">Teknik Komputer</option>
                 <option value="biomedik">Teknik Biomedik</option>
