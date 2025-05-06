@@ -3,12 +3,20 @@
     list-style-type: none;
     margin-block: 1rem;
     overflow-x: scroll;
+    display: flex;
 }
 
-.list_container_TESTING {
-    width: 100%;
-    /*overflow-x: clip;*/
-    /*position: relative;*/
+.list_container_fixed {
+    position: sticky;
+    left: 0;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.list_item_fixed, .list_header_fixed {
+    background-color: rgba(var(--background));
 }
 
 .list {
@@ -24,42 +32,6 @@
 .list_item {
     display: flex;
     flex-direction: row;
-    /*justify-content: space-between;*/
-}
-
-.list_header > :first-child, .list_item > :first-child {
-    position: sticky;
-    left: 0;
-    height: auto;
-    /*color: red;*/
-    font-weight: bold;
-    /*border-right: 2px solid rgba(var(--accent), 0.125);*/
-}
-
-.list_item > :first-child {
-    background-color: rgba(var(--background));
-}
-
-.list_header > :first-child {
-    isolation: isolate;
-    z-index: 1;
-}
-
-.list_header > :first-child::before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -2;
-    inset: 0;
-    background: rgba(var(--background));
-}
-.list_header > :first-child::after {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: -1;
-    inset: 0;
-    background: rgba(var(--secondary), 0.125);
 }
 
 .list_header_item {
@@ -67,7 +39,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    position: relative; /* for resize handle */
 }
 
 .list_header button {
@@ -163,7 +134,12 @@
     width: 100%;
 }
 
-.resize_handle {
+.resize_handle_container {
+    position: relative;
+}
+
+.resize_handle,
+.resize_handle_dummy {
     display: block;
     background-color: rgba(var(--accent), 0.125);
     flex-grow: 0;
@@ -171,8 +147,11 @@
     height: 100%;
     position: absolute;
     right: 0;
-    cursor: col-resize;
 }
 
+.resize_handle {
+    /* TODO: Remove once resizing is implemented */
+    /*cursor: col-resize; */
+}
 
 

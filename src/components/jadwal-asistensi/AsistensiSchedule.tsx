@@ -64,7 +64,7 @@ export default function AsistensiSchedule(props: Props) {
                                        name="view-type"
                                        checked={viewMode === "calendar"}
                                        value="calendar"
-                                       onChange={(e) => {
+                                       onChange={() => {
                                            setViewMode("calendar")
                                        }}/>
                                 <div className={styles.svgContainer}>
@@ -82,7 +82,7 @@ export default function AsistensiSchedule(props: Props) {
                                        name="view-type"
                                        checked={viewMode === "list"}
                                        value="list"
-                                       onChange={(e) => {
+                                       onChange={() => {
                                            setViewMode("list")
                                        }}/>
                                 <div className={styles.svgContainer}>
