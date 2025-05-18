@@ -1,0 +1,16 @@
+.calendarDiv {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+}
+
+.calendarRow {
+    display: flex;
+    flex-direction: column;
+}
+
+.innerCell {
+    display: flex;
+    flex-direction: column;
+}

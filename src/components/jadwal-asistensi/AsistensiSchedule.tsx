@@ -103,7 +103,8 @@ export default function AsistensiSchedule(props: Props) {
             </div>
             {viewMode === "calendar" ?
                 <CalendarAsistensi content={props.data.content}
-                                   options={{year: selectedYear, major: selectedMajor}}/>
+                                   options={{year: selectedYear, major: selectedMajor}}
+                                   ganjil_genap={props.data.ganjil_genap}/>
                 : <ListAsistensi content={props.data.content}
                                  options={{year: selectedYear, major: selectedMajor}}
                                  ganjil_genap={props.data.ganjil_genap}/>
