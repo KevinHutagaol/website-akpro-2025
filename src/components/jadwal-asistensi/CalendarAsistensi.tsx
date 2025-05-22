@@ -1,6 +1,7 @@
-import {useMemo} from "react"
+import {useEffect, useMemo, useRef} from "react"
 import "/src/styles/global.css"
 import styles from "/src/styles/CalendarAsistensi.module.css"
+import useSyncRowHeights from "./useSyncRowHeights.ts";
 
 interface Props {
     content: Array<{
@@ -28,6 +29,26 @@ type AsisData = {
     zoomMeetingsLink?: string;
     recordingsLink?: string;
 }
+
+const getDaysArray = function (start: Date, end: Date) {
+    const arr: Array<Date> = [];
+    let currentDate = new Date(start);
+
+    currentDate.setHours(0, 0, 0, 0);
+
+    const finalDate = new Date(end);
+    finalDate.setHours(0, 0, 0, 0);
+
+    if (currentDate > finalDate) {
+        return arr;
+    }
+
+    while (currentDate <= finalDate) {
+        arr.push(new Date(currentDate));
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return arr;
+};
 
 export default function CalendarAsistensi(props: Props) {
     type DisplayData = { date: Date, contents: Array<{ data: AsisData, isHighlighted: boolean }> };
@@ -62,6 +83,7 @@ export default function CalendarAsistensi(props: Props) {
         }, [firstHour, firstHour]);
     }, [props.content]);
 
+
     const [minDate, maxDate] = useMemo(() => {
         let firstDate = props.content[0].date;
         firstDate = new Date(firstDate.getFullYear(), firstDate.getMonth(), firstDate.getDate());
@@ -94,26 +116,59 @@ export default function CalendarAsistensi(props: Props) {
             output[data.date.getHours() - minHour][dateDiffInDays(minDate, data.date)] = data;
         })
 
-        console.table(output);
+        // console.table(output);
         return output;
     }, [props.content]);
 
+
+    const {
+        scrollableAreaRef,
+        fixedAreaRef,
+        syncRowHeights: _sync
+    } = useSyncRowHeights(`.${styles.calendar_header}, .${styles.calendar_item}`, [])
 
     return (
         <>
             <p>CalendarAsistensi {props.options.year ? props.options.year : "all"} {props.options.major ? props.options.major : "all"}</p>
             <p>{minHour} {maxHour}</p>
             <p>{minDate.toLocaleDateString()} {maxDate.toLocaleDateString()}</p>
-            <div className={styles.calendarDiv}>
-                {groupedData.map(item => (
-                    <div className={styles.calendarRow}>
-                        <p>{item.date.toLocaleDateString("id-ID", {day: "2-digit", month: "long", hour: "2-digit"})}</p>
-                        {item.contents.map((el, index) => (
-                            <div className={styles.innerCell}>{el.data.name}</div>
+            {/*<div className={styles.calendarDiv}>*/}
+            {/*    {groupedData.map(item => (*/}
+            {/*        <div className={styles.calendarRow}>*/}
+            {/*            <p>{item.date.toLocaleDateString("id-ID", {day: "2-digit", month: "long", hour: "2-digit"})}</p>*/}
+            {/*            {item.contents.map((el, index) => (*/}
+            {/*                <div className={styles.innerCell}>{el.data.name}</div>*/}
+            {/*            ))}*/}
+            {/*        </div>*/}
+            {/*    ))}*/}
+            {/*</div>*/}
+            <div className={styles.calendar_container}>
+                <div className={`${styles.calendar_container_fixed} ${styles.calendar_header_fixed}`}
+                     ref={fixedAreaRef}>
+                    <div className={`${styles.calendar_header_item} 
+                                    ${styles.calendar_header_item_fixed}`}
+                    >TEMP
+                    </div>
+                    <div className={styles.calendar_row}>
+                        {Array.from({length: maxHour - minHour + 1}, (_, i) => (minHour + i))
+                            .map((hour) => (
+                                <div className={`${styles.calendar_item} ${styles.calendar_item_fixed}`}>
+                                    {hour}:00
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+
+                <div className={styles.calendar_container_scrollable} ref={scrollableAreaRef}>
+                    <div className={styles.calendar_header}>
+                        {getDaysArray(minDate, maxDate).map((date) => (
+                            <div>{date.toLocaleDateString()}</div>
                         ))}
                     </div>
-                ))}
+                </div>
             </div>
         </>
     )
 }
+
