@@ -1,7 +1,6 @@
-import {useEffect, useMemo, useRef} from "react"
+import { useMemo } from "react"
 import "/src/styles/global.css"
 import styles from "/src/styles/CalendarAsistensi.module.css"
-import useSyncRowHeights from "./useSyncRowHeights.ts";
 
 interface Props {
     content: Array<{
@@ -83,6 +82,10 @@ export default function CalendarAsistensi(props: Props) {
         }, [firstHour, firstHour]);
     }, [props.content]);
 
+    const arrHours = useMemo(() => {
+        return Array.from({length: maxHour - minHour + 1}, (_, i) => (minHour + i))
+    }, [props.content]);
+
 
     const [minDate, maxDate] = useMemo(() => {
         let firstDate = props.content[0].date;
@@ -94,6 +97,10 @@ export default function CalendarAsistensi(props: Props) {
             return acc;
         }, [firstDate, firstDate]);
     }, [props.content]);
+
+    const arrDates = useMemo(() => {
+        return getDaysArray(minDate, maxDate);
+    }, [props.content])
 
 
     const calendarMatrix = useMemo(() => {
@@ -116,59 +123,78 @@ export default function CalendarAsistensi(props: Props) {
             output[data.date.getHours() - minHour][dateDiffInDays(minDate, data.date)] = data;
         })
 
-        // console.table(output);
+        console.table(output);
         return output;
     }, [props.content]);
 
 
-    const {
-        scrollableAreaRef,
-        fixedAreaRef,
-        syncRowHeights: _sync
-    } = useSyncRowHeights(`.${styles.calendar_header}, .${styles.calendar_item}`, [])
-
     return (
-        <>
-            <p>CalendarAsistensi {props.options.year ? props.options.year : "all"} {props.options.major ? props.options.major : "all"}</p>
-            <p>{minHour} {maxHour}</p>
-            <p>{minDate.toLocaleDateString()} {maxDate.toLocaleDateString()}</p>
-            {/*<div className={styles.calendarDiv}>*/}
-            {/*    {groupedData.map(item => (*/}
-            {/*        <div className={styles.calendarRow}>*/}
-            {/*            <p>{item.date.toLocaleDateString("id-ID", {day: "2-digit", month: "long", hour: "2-digit"})}</p>*/}
-            {/*            {item.contents.map((el, index) => (*/}
-            {/*                <div className={styles.innerCell}>{el.data.name}</div>*/}
-            {/*            ))}*/}
-            {/*        </div>*/}
-            {/*    ))}*/}
-            {/*</div>*/}
-            <div className={styles.calendar_container}>
-                <div className={`${styles.calendar_container_fixed} ${styles.calendar_header_fixed}`}
-                     ref={fixedAreaRef}>
-                    <div className={`${styles.calendar_header_item} 
-                                    ${styles.calendar_header_item_fixed}`}
-                    >TEMP
-                    </div>
-                    <div className={styles.calendar_row}>
-                        {Array.from({length: maxHour - minHour + 1}, (_, i) => (minHour + i))
-                            .map((hour) => (
-                                <div className={`${styles.calendar_item} ${styles.calendar_item_fixed}`}>
-                                    {hour}:00
-                                </div>
-                            ))
-                        }
+        <div className={styles.calendar_container}>
+            <div className={`${styles.calendar_container_fixed} `}>
+                <div className={`${styles.calendar_header_fixed} ${styles.calendar_header}`}>
+                    <div className={`${styles.calendar_header_item_fixed} 
+                                        ${styles.resize_handle_container}`}
+                    >{"\u00A0"}
+                        <div className={styles.resize_handle_dummy}></div>
                     </div>
                 </div>
-
-                <div className={styles.calendar_container_scrollable} ref={scrollableAreaRef}>
-                    <div className={styles.calendar_header}>
-                        {getDaysArray(minDate, maxDate).map((date) => (
-                            <div>{date.toLocaleDateString()}</div>
-                        ))}
+                <div className={styles.calendar_row}>
+                    <div className={`${styles.calendar_item_fixed__empty} ${styles.resize_handle_container}`}>
+                        <div className={styles.resize_handle_dummy}></div>
                     </div>
+                    {arrHours.map((hour) => (
+                        <div
+                            className={`${styles.calendar_item_fixed} ${styles.resize_handle_container}`}>
+                            <div className={`${styles.calendar_item__time} `}>
+                                {hour}:00
+                            </div>
+                            <div className={styles.resize_handle_dummy}></div>
+                        </div>
+                    ))
+                    }
                 </div>
             </div>
-        </>
+            <div className={styles.calendar_container_scrollable}>
+                <div className={styles.calendar_header}>
+                    {arrDates.map(date => (
+                        <div className={`${styles.calendar_header__dates}`}>
+                            {date.toLocaleDateString("id-ID", {weekday: "short"})} - {" "}
+                            {date.toLocaleDateString("id-ID", {month: "long", day: "numeric"})}
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.calendar_row}>
+                    <div className={styles.calendar_item__empty}>
+                        {calendarMatrix[0].map(() => (
+                            <div className={`${styles.calendar__contents_empty}`}>
+                            </div>
+                        ))}
+                    </div>
+                    {calendarMatrix.map(row => (
+                        <div className={styles.calendar_item}>
+                            {row.map((entry, i) => (
+                                <div className={`${styles.calendar__contents}`}>
+                                    {entry === null ? null : (
+                                        entry!.contents.map(item => (
+                                            <div className={`${styles.item__internal_member}`}>
+                                                {item.data.name}
+                                                <button
+                                                    className={`${styles.item__pop_up_button} `}
+                                                >
+                                                    <svg className={"svg-icon"}>
+                                                        <use href={"#arrow-right-circle"}/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        ))
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
     )
 }
 
