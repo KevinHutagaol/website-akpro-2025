@@ -31,9 +31,9 @@ export default function AsistensiSchedule(props: Props) {
     const [viewMode, setViewMode] = useState<("calendar" | "list")>("calendar");
 
     useEffect(() => {
-        setSelectedYear(0);
-        setSelectedMajor("");
-        setViewMode("list");
+        // setSelectedYear(0);
+        // setSelectedMajor("");
+        // setViewMode("list");
     }, []);
 
     // if (!props.data.is_published) {
