@@ -1,4 +1,4 @@
-import {useState, useRef, useMemo, useEffect} from "react"
+import {useState, useMemo} from "react"
 import "/src/styles/global.css"
 import styles from "/src/styles/ListAsistensi.module.css"
 import useSyncRowHeights from "./useSyncRowHeights.ts";
@@ -82,7 +82,11 @@ export default function ListAsistensi(props: Props) {
     const [tableColumnWidths, _] = useState<Map<ColumnNames, number>>(initial_widths);
 
 
-    const {scrollableAreaRef, fixedAreaRef, syncRowHeights: _sync} = useSyncRowHeights(`.${styles.list_header}, .${styles.list_item}`, [sorted_list])
+    const {
+        scrollableAreaRef,
+        fixedAreaRef,
+        syncRowHeights: _manualSync
+    } = useSyncRowHeights(`.${styles.list_header}, .${styles.list_item}`, [sorted_list])
 
     return (
         <div className={styles.list_container}>
@@ -110,11 +114,10 @@ export default function ListAsistensi(props: Props) {
                 </div>
                 <ul className={styles.list}>
                     {sorted_list.map((item, i) => (
-                        <li key={i} className={styles.list_item}
+                        <li key={i} className={`${styles.list_item} ${styles.list_item_fixed}`}
                             style={{minWidth: `${tableColumnWidths.get("name")!.toString()}px`}}>
                             <div
                                 className={`${styles.list__Name} 
-                                            ${styles.list_item_fixed} 
                                             ${styles.resize_handle_container}`}
                             >
                                 {item.name}
