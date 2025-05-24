@@ -11,8 +11,8 @@ function debounceUtil<F extends (...args: any[]) => any>(func: F, wait: number) 
             timeoutID = null;
         }, wait);
     }
-}
 
+}
 
 export default function useSyncRowHeights(rowSelector: string, dependencies: any[] = []) {
     const scrollableAreaRef = useRef<HTMLDivElement>(null);
@@ -47,8 +47,6 @@ export default function useSyncRowHeights(rowSelector: string, dependencies: any
 
     useLayoutEffect(() => {
         syncRowHeights();
-
-
 
         const handleResize = debounceUtil(syncRowHeights, 100);
         window.addEventListener('resize', handleResize);
