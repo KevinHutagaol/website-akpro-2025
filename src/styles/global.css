@@ -23,7 +23,8 @@
     --orange-gradient: linear-gradient(90deg, #FFD300, #FF5E00);
 
     /* @link https://utopia.fyi/type/calculator?c=320,14,1.125,1000,16,1.2,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
-
+    --fs--2: clamp(0.6914rem, 0.6899rem + 0.0073vw, 0.6944rem);
+    --fs--1: clamp(0.7778rem, 0.7516rem + 0.1307vw, 0.8333rem);
     --fs-0: clamp(0.875rem, 0.8162rem + 0.2941vw, 1rem);
     --fs-1: clamp(0.9844rem, 0.8829rem + 0.5074vw, 1.2rem);
     --fs-2: clamp(1.1074rem, 0.9509rem + 0.7825vw, 1.44rem);
