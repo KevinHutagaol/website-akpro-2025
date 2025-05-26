@@ -136,9 +136,10 @@ async function fetchAndParseAsistensiContent(url: string): Promise<Array<Asisten
                         person_arr.push({name: person_name, major: person_major, year: parseInt(person_year)});
                     }
                 })
-                const date_time = new Date(`${csvParsed[ROW_DATE][j]}T${csvParsed[i + RELATIVE_ROW_TIME][j]}:00`);
+                // TODO: Fix: Timezone is hardcoded to UTC+7
+                const date_time = new Date(`${csvParsed[ROW_DATE][j]}T${csvParsed[i + RELATIVE_ROW_TIME][j]}:00+07:00`);
                 if (!date_time) {
-                    console.error("Datetime string invalid ", `${csvParsed[ROW_DATE][j]}T${csvParsed[i + RELATIVE_ROW_TIME][j]}:00`);
+                    console.error("Datetime string invalid ", `${csvParsed[ROW_DATE][j]}T${csvParsed[i + RELATIVE_ROW_TIME][j]}:00+07:00`);
                 }
                 outputArr.push({
                     name: csvParsed[i + RELATIVE_ROW_NAME][j],
