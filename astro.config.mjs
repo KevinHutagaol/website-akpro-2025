@@ -11,6 +11,7 @@ export default defineConfig({
     '/diktat-asistensi/jadwal-asistensi' : '/TOP-SECRET-PAGE-DO-NOT-OPEN/',
     '/diktat-asistensi' : '/TOP-SECRET-PAGE-DO-NOT-OPEN/',
     '/diktat-asistensi/kumpulan-diktat' : '/TOP-SECRET-PAGE-DO-NOT-OPEN/',
+    '/' : '/TOP-SECRET-PAGE-DO-NOT-OPEN/',
   },
   env: {
     schema: {
