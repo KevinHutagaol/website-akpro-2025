@@ -71,7 +71,7 @@ function InternalMemberItem(props: InternalMemberItemProps) {
     const [isPopupVisible, setIsPopupVisible] = useState(false);
     const [popupDirection, setPopupDirection] = useState<PopupDirection>("down");
     const [activeItemData, setActiveItemData] = useState<AsisData | null>(null);
-    const [activeElementIndex, setActiveElementIndex] = useState<Number | null>(null);
+    const [activeElementIndex, setActiveElementIndex] = useState<number | null>(null);
 
     const popupRef = useRef<HTMLDivElement | null>(null);
     const elementRef = useRef<HTMLDivElement | null>(null);
@@ -189,6 +189,7 @@ function InternalMemberItem(props: InternalMemberItemProps) {
             {isPopupVisible && activeItemData !== null && (
                 <div className={`${popupDirectionClass} ${styles.internal_member__popup}`}
                      onMouseLeave={handleMouseLeave}
+                     style={{opacity: props.entry && activeElementIndex !== null && props.entry.contents[activeElementIndex].isHighlighted ? 1 : 0.5}}
                      ref={popupRef}>
                     <div className={styles.internal_member__popup_content}>
                         <div className={styles.popup__text}>
