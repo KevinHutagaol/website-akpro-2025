@@ -14,22 +14,26 @@ interface Props {
         is_published: boolean;
         content: Array<{
             name: string;
-            person: Array<{ name: string; year: number; major: string }>;
+            person: Array<{ name: string; year?: number; major?: string }>;
             date: Date;
+            year: Array<number>;
+            major: Array<"elektro" | "komputer" | "biomedik">;
+            zoomMeetingsLink?: string;
+            recordingsLink?: string;
         }>;
     }
 }
 
 export default function AsistensiSchedule(props: Props) {
-    const convertToTerm = (year: number): number => props.data.ganjil_genap === 'genap' ? 2 * year : 2 * year - 1
 
     const [selectedYear, setSelectedYear] = useState<number>(0);
     const [selectedMajor, setSelectedMajor] = useState<("elektro" | "komputer" | "biomedik") | "">("");
     const [viewMode, setViewMode] = useState<("calendar" | "list")>("calendar");
 
     useEffect(() => {
-        setSelectedYear(0);
-        setSelectedMajor("");
+        // setSelectedYear(0);
+        // setSelectedMajor("");
+        // setViewMode("list");
     }, []);
 
     // if (!props.data.is_published) {
@@ -60,7 +64,7 @@ export default function AsistensiSchedule(props: Props) {
                                        name="view-type"
                                        checked={viewMode === "calendar"}
                                        value="calendar"
-                                       onChange={(e) => {
+                                       onChange={() => {
                                            setViewMode("calendar")
                                        }}/>
                                 <div className={styles.svgContainer}>
@@ -78,7 +82,7 @@ export default function AsistensiSchedule(props: Props) {
                                        name="view-type"
                                        checked={viewMode === "list"}
                                        value="list"
-                                       onChange={(e) => {
+                                       onChange={() => {
                                            setViewMode("list")
                                        }}/>
                                 <div className={styles.svgContainer}>
@@ -99,9 +103,11 @@ export default function AsistensiSchedule(props: Props) {
             </div>
             {viewMode === "calendar" ?
                 <CalendarAsistensi content={props.data.content}
-                                   options={{year: selectedYear, major: selectedMajor}}/>
+                                   options={{year: selectedYear, major: selectedMajor}}
+                                   ganjil_genap={props.data.ganjil_genap}/>
                 : <ListAsistensi content={props.data.content}
-                                 options={{year: selectedYear, major: selectedMajor}}/>
+                                 options={{year: selectedYear, major: selectedMajor}}
+                                 ganjil_genap={props.data.ganjil_genap}/>
 
             }
         </section>

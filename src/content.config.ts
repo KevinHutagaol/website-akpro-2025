@@ -35,8 +35,8 @@ const jadwalAsisetnsiData = defineCollection({
                     name: z.string(),
                     person: z.array(z.object({
                         name: z.string(),
-                        year: z.number(),
-                        major: z.enum(["elektro", "komputer", "biomedik"])
+                        year: z.optional(z.number()),
+                        major: z.optional(z.enum(["elektro", "komputer", "biomedik"]))
                     })),
                     date: z.date(),
                     year: z.array(z.number()),
