@@ -22,7 +22,8 @@
     --light-blue-gradient: linear-gradient(90deg, #BDF3FF, #00CBF6);
     --orange-gradient: linear-gradient(90deg, #FFD300, #FF5E00);
 
-    /* @link https://utopia.fyi/type/calculator?c=320,14,1.125,1000,16,1.2,5,0,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    /* @link https://utopia.fyi/type/calculator?c=320,14,1.125,1000,16,1.2,5,3,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+    --fs--3: clamp(0.5787rem, 0.6314rem + -0.0843vw, 0.6145rem);
     --fs--2: clamp(0.6914rem, 0.6899rem + 0.0073vw, 0.6944rem);
     --fs--1: clamp(0.7778rem, 0.7516rem + 0.1307vw, 0.8333rem);
     --fs-0: clamp(0.875rem, 0.8162rem + 0.2941vw, 1rem);
