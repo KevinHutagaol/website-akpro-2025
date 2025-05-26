@@ -8,10 +8,10 @@ export default defineConfig({
   integrations: [react()],
   adapter: netlify(),
   redirects: {
-    '/diktat-asistensi/jadwal-asistensi' : '/TOP-SECRET-PAGE-DO-NOT-OPEN/',
-    '/diktat-asistensi' : '/TOP-SECRET-PAGE-DO-NOT-OPEN/',
-    '/diktat-asistensi/kumpulan-diktat' : '/TOP-SECRET-PAGE-DO-NOT-OPEN/',
-    '/' : '/TOP-SECRET-PAGE-DO-NOT-OPEN/',
+    '/diktat-asistensi/jadwal-asistensi' : '/TOP-SECRET-DO-NOT-OPEN/',
+    '/diktat-asistensi' : '/TOP-SECRET-DO-NOT-OPEN/',
+    '/diktat-asistensi/kumpulan-diktat' : '/TOP-SECRET-DO-NOT-OPEN/',
+    '/' : '/TOP-SECRET-DO-NOT-OPEN/',
   },
   env: {
     schema: {
