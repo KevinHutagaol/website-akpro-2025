@@ -89,7 +89,7 @@ async function fetchAndParseAsistensiContent(url: string): Promise<Array<Asisten
     const response = await fetch(url);
     const data = await response.text();
     const csvParsed: Array<Array<string>> = parseCsv(data);
-    // console.table(csvParsed);
+    console.table(csvParsed);
 
     let outputArr: Array<AsistensiContent> = [];
 
@@ -107,8 +107,8 @@ async function fetchAndParseAsistensiContent(url: string): Promise<Array<Asisten
     const RELATIVE_ROW_TIME = 4;
     const RELATIVE_ROW_ZOOM_LINK = 5;
     const RELATIVE_ROW_RECORDING = 6;
-
-    for (let i = STARTING_ROW; i < csvParsed.length - DATA_HEIGHT; i += DATA_HEIGHT) {
+                                    //   VVVV, i forgot the equals sign
+    for (let i = STARTING_ROW; i <= csvParsed.length - DATA_HEIGHT; i += DATA_HEIGHT) {
         for (let j = STARTING_COL; j < csvParsed[0].length; j++) {
             if (csvParsed[i][j] != "") {
                 let major_arr: AsistensiContent["major"] = [];
@@ -232,5 +232,5 @@ export async function fetchAsistensiData(): Promise<Array<AsistensiData>> {
 
 // const test2 = await fetchAsistensiData();
 // console.log(JSON.stringify(test2, null, 2))
-// console.table(test2[0].content)
+// console.table(test2[test2.length - 1].content)
 
