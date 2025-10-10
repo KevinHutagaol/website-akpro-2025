@@ -251,7 +251,10 @@ export default function CalendarAsistensi(props: Props) {
         const groups = new Map<String, DisplayData>();
 
         props.content.forEach((element) => {
-            const elementDateString = element.date.toISOString();
+            const date = new Date(element.date);
+            // Fix problem with minutes causing new hour groups
+            date.setMinutes(0, 0, 0);
+            const elementDateString = date.toISOString();
 
             if (groups.has(elementDateString)) {
                 groups.get(elementDateString)?.contents.push({

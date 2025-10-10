@@ -89,7 +89,7 @@ async function fetchAndParseAsistensiContent(url: string): Promise<Array<Asisten
     const response = await fetch(url);
     const data = await response.text();
     const csvParsed: Array<Array<string>> = parseCsv(data);
-    console.table(csvParsed);
+    // console.table(csvParsed);
 
     let outputArr: Array<AsistensiContent> = [];
 
